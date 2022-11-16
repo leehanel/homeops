@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - bitnami-charts.yaml
+  - ingress-nginx.yaml
+  - jetstack.yaml
+  - kyverno.yaml
+  - node-feature.yaml
+  - prometheus.yaml
+  - rook-charts.yaml
