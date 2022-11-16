@@ -1,0 +1,35 @@
+piVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps
+  namespace: argocd
+spec:
+  generators:
+  - matrix:
+      generators:
+        - list:
+            elements:
+            - server: 'https://kubernetes.default.svc'
+              name: in-cluster
+        - git:
+            repoURL: https://github.com/leehanel/gitops
+            revision: HEAD
+            directories:
+            - path: cluster/apps/*
+  template:
+    metadata:
+      name: '{{path[1]}}-{{name}}'
+      namespace: devops
+    spec:
+      project: devops
+      source:
+        repoURL: https://github.com/leehanel/homeops
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: '{{server}}'
+        namespace: argocd
+      syncPolicy:
+        automated: 
+          prune: true
+        syncOptions: []
