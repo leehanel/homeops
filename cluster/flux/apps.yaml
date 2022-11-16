@@ -1,3 +1,6 @@
 ---
-resources:
-- ../apps
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: apps
+  namespace: flux-system
