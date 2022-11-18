@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: apps
+  name: core
   namespace: argocd
 spec:
   generators:
@@ -16,7 +16,7 @@ spec:
             repoURL: ssh://git@github.com/leehanel/homeops.git
             revision: HEAD
             directories:
-            - path: cluster/apps/*
+            - path: cluster/core/*
   template:
     metadata:
       name: '{{path[1]}}-{{name}}'
