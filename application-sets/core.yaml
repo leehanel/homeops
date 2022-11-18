@@ -13,7 +13,7 @@ spec:
             - server: 'https://kubernetes.default.svc'
               name: in-cluster
         - git:
-            repoURL: ssh://git@github.com/leehanel/homeops.git
+            repoURL: 'https://github.com/leehanel/homeops.git'
             revision: HEAD
             directories:
             - path: cluster/core/*
@@ -24,7 +24,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: ssh://git@github.com/leehanel/homeops.git
+        repoURL: https://github.com/leehanel/homeops.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
