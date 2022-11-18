@@ -1,6 +1,6 @@
 ---
 resources:
-- cert-manger
+- cert-manager
 - metallb-system
 
 
