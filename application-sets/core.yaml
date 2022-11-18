@@ -6,17 +6,11 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - matrix:
-      generators:
-        - list:
-            elements:
-            - server: 'https://kubernetes.default.svc'
-              name: in-cluster
-        - git:
-            repoURL: 'https://github.com/leehanel/homeops.git'
-            revision: HEAD
-            directories:
-            - path: cluster/core/*
+    - git:
+        repoURL: 'https://github.com/leehanel/homeops.git'
+        revision: HEAD
+        directories:
+        - path: cluster/core/*
   template:
     metadata:
       name: '{{path[1]}}-{{name}}'
@@ -28,7 +22,7 @@ spec:
         targetRevision: HEAD
         path: '{{path}}'
       destination:
-        server: '{{server}}'
+        server: 'https://kubernetes.default.svc'
         namespace: argocd
       syncPolicy:
         automated: 
