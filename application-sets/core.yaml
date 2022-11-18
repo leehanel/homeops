@@ -13,7 +13,7 @@ spec:
         - path: cluster/core/*
   template:
     metadata:
-      name: 'core-{{path[-1]}}'
+      name: 'core-{{path[2]}}'
       namespace: argocd
     spec:
       project: default
