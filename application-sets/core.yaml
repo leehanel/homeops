@@ -20,9 +20,9 @@ spec:
   template:
     metadata:
       name: '{{path[1]}}-{{name}}'
-      namespace: devops
+      namespace: argocd
     spec:
-      project: devops
+      project: default
       source:
         repoURL: ssh://git@github.com/leehanel/homeops.git
         targetRevision: HEAD
