@@ -1,0 +1,17 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "internal.ctr.farm"
+  namespace: cert-manager
+spec:
+  secretName: "internal.ctr.farm-tls"
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "internal.ctr.farm"
+  dnsNames:
+    - "internal.ctr.farm"
+    - "il.ctr.farm"
+    - "*.i.ctr.farm"
+    - "*.internal.ctr.farm"
