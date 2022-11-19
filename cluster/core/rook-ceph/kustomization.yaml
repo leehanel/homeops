@@ -1,0 +1,9 @@
+---
+resources:
+- namespace.yaml
+helmCharts:
+- name: rook-ceph
+  releaseName:  rook-ceph
+  repo: https://charts.rook.io/release
+  namespace: rook-ceph
+  version:  v1.10.6
