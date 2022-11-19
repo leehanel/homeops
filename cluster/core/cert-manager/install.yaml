@@ -5315,6 +5315,10 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
+      dnsConfig:
+        options:
+        - name: "ndots"
+          value: "1"
       containers:
         - name: cert-manager-controller
           image: "quay.io/jetstack/cert-manager-controller:v1.10.0"
