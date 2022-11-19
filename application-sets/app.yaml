@@ -1,0 +1,30 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: app
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: 'https://github.com/leehanel/homeops.git'
+        revision: HEAD
+        directories:
+        - path: cluster/app/*
+  template:
+    metadata:
+      name: 'app-{{path[2]}}'
+      namespace: argocd
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/leehanel/homeops.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: argocd
+      syncPolicy:
+        automated: 
+          prune: true
+        syncOptions: []
