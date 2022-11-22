@@ -1,0 +1,83 @@
+---
+fullnameOverride: prometheus
+alertmanager:
+  enabled: false
+nodeExporter:
+  serviceMonitor:
+    relabelings:
+      - action: replace
+        regex: (.*)
+        replacement: $1
+        sourceLabels:
+          - __meta_kubernetes_pod_node_name
+        targetLabel: kubernetes_node
+kube-state-metrics:
+  fullnameOverride: kube-state-metrics
+prometheus-node-exporter:
+  fullnameOverride: node-exporter
+grafana:
+  enabled: false
+  forceDeployDashboards: true
+  sidecar:
+    dashboards:
+      multicluster:
+        etcd:
+          enabled: true
+kubelet:
+  enabled: true
+  serviceMonitor:
+    metricRelabelings:
+      - action: replace
+        sourceLabels:
+          - node
+        targetLabel: instance
+        #kubeApiServer:
+        #enabled: true
+# Setting this option to 0 disabled CPU limits
+prometheusOperator:
+  configReloaderCpu: 0
+prometheus:
+  dnsConfig:
+    options:
+      - name: ndots
+        value: "2"
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    enabled: true
+    pathType: Prefix
+    ingressClassName: ingress-internal
+    hosts:
+      - "prom.i.ctr.farm"
+  thanosService:
+    enabled: false
+  thanosServiceMonitor:
+    enabled: false
+  prometheusSpec:
+    replicas: 1
+    replicaExternalLabelName: "replica"
+    ruleSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+    probeSelectorNilUsesHelmValues: false
+    retention: 14d
+    enableAdminAPI: true
+    walCompression: true
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: "ceph-block"
+          resources:
+            requests:
+              storage: 100Gi
+    additionalScrapeConfigs:
+      - job_name: speedtest
+        scrape_interval: 60m
+        scrape_timeout:  60s
+      - job_name: "node-exporter"
+        honor_timestamps: true
+        static_configs:
+          - targets:
+            - "192.168.0.119:9100"
+            - "192.168.0.120:9100"
+
