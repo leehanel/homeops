@@ -10,10 +10,10 @@ spec:
         repoURL: 'https://github.com/leehanel/homeops.git'
         revision: HEAD
         directories:
-        - path: cluster/app/*
+        - path: cluster/apps/*
   template:
     metadata:
-      name: 'app-{{path[2]}}'
+      name: 'apps-{{path[2]}}'
       namespace: argocd
     spec:
       project: default
