@@ -9,3 +9,9 @@ helmCharts:
   namespace: rook-ceph
   version:  v1.10.6
   valuesFile: operator.yaml
+- name: rook-ceph-cluster
+  releaseName:  rook-cluster
+  repo: https://charts.rook.io/release
+  namespace: rook-ceph
+  version:  v1.10.6
+  valuesFile: cluster.yaml
