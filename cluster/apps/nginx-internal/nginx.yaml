@@ -1,0 +1,29 @@
+---
+controller:
+  electionID: ingress-internal
+  ingressClassByName: true
+  ingressClassResource:
+    name: ingress-internal
+    enabled: true
+    default: true
+    controllerValue: "k8s.io/ingress-internal"
+  kind: Deployment
+  config:
+    use-forwarded-headers: "true"
+  publishService:
+    enabled: true
+  extraArgs:
+    default-ssl-certificate: 'cert-manager/internal.ctr-farm-tls'
+  extraEnvs:
+    - name: TZ
+      value: America/Chicago
+  metrics:
+    enabled: true
+  service:
+    annotations:
+      prometheus.io/port: "18080"
+      prometheus.io/scrape: "true"
+    internalTrafficPolicy: Local
+    type: LoadBalancer
+defaultBackend:
+  enabled: false

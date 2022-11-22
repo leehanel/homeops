@@ -1,0 +1,8 @@
+---
+namespace: nginx
+helmCharts:
+- name: ingress-nginx
+  repo: https://kubernetes.github.io/ingress-nginx
+  namespace: nginx
+  valuesFile: nginx.yaml
+  
