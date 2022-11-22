@@ -3,4 +3,5 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 resources:
+- monitoring.yaml
 - nginx.yaml
