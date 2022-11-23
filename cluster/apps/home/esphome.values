@@ -1,0 +1,23 @@
+persistence:
+  config:
+    enabled: true
+    existingClaim: esphome-config
+image:
+  repository: ghcr.io/esphome/esphome
+  tag: 2022.10.2
+service:
+  main:
+    ports:
+      http:
+        port: 6052
+ingress:
+  main:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    hosts:
+      - host: "esphome.i.ctr.farm"
+        paths:
+          - path: /
+    
