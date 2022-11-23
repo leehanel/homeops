@@ -1,3 +1,6 @@
+global:
+  nameOverride: esphome
+  fullnameOverride: esphome
 persistence:
   config:
     enabled: true
@@ -10,6 +13,9 @@ service:
     ports:
       http:
         port: 6052
+env:
+  TZ: "America/Chicago"
+  ESPHOME_DASHBOARD_USE_PING: true
 ingress:
   main:
     enabled: true
