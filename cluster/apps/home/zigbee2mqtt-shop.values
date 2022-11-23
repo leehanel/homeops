@@ -18,6 +18,11 @@ ingress:
         paths:
           - path: /
             pathType: Prefix
+service:
+  main:
+    ports:
+      http:
+        port: 8080
 persistence:
   config:
     enabled: true
@@ -28,7 +33,7 @@ config:
   permit_join: false
   mqtt:
     base_topic: zigbee2mqtt-shop
-    server: mqtt://mqtt-mosquitto:1883
+    server: mqtt://mqtt:1883
   serial:
     port: tcp://192.168.2.37:8888
     adapter: ezsp
