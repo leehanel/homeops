@@ -13,7 +13,7 @@ service:
 ingress:
   main:
     enabled: true
-    ingressClassName: nginx
+    ingressClassName: ingress-internal
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     hosts:
