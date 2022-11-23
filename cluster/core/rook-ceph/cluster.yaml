@@ -8,7 +8,7 @@ ingress:
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     host:
-      name: ceph.internal.ctr.farm
+      name: ceph.i.ctr.farm
       path: "/ceph-dashboard(/|$)(.*)"
     ingressClassName: ingress-internal
 cephClusterSpec:
