@@ -1,0 +1,65 @@
+global:
+  nameOverride: zigbee2mqtt-shop
+  fullnameOverride: zigbee2mqtt
+image:
+  repository: ghcr.io/koenkk/zigbee2mqtt
+  tag: latest-dev@sha256:2c70786ff3b6898bc04bc2dfc2921da227e0ff8fe435b21f59a377b9696e83e9
+env:
+  TZ: America/Chicago
+  ZIGBEE2MQTT_DATA: /data
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "ingress-internal"
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    hosts:
+      - host: "zigbee2mqtt-shop.i.ctr.farm"
+        paths:
+          - path: /
+            pathType: Prefix
+persistence:
+  config:
+    enabled: true
+    existingClaim: zigbee2mqtt-config-shop
+    mountPath: "/data"
+config:
+  homeassistant: true
+  permit_join: false
+  mqtt:
+    base_topic: zigbee2mqtt-shop
+    server: mqtt://mqtt-mosquitto:1883
+  serial:
+    port: tcp://192.168.2.37:8888
+    adapter: ezsp
+  advanced:
+    log_level: info
+    pan_id: 6754
+    channel: 11
+    network_key:
+      - 1
+      - 3
+      - 5
+      - 7
+      - 9
+      - 11
+      - 13
+      - 15
+      - 0
+      - 2
+      - 4
+      - 6
+      - 8
+      - 10
+      - 12
+      - 13
+    availability_blocklist: []
+    availability_passlist: []
+  device_options: {}
+  blocklist: []
+  passlist: []
+  queue: {}
+  frontend:
+    port: 8080
+  experimental: {}
+  availability: false
