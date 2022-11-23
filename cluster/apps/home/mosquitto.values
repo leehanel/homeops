@@ -21,7 +21,7 @@ securityContext:
   runAsGroup: 1883
 persistence:
   data:
-    enabled: false
+    enabled: true
     existingClaim: mosquitto-config-v1
 resources:
   requests:
