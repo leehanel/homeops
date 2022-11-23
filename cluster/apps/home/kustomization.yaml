@@ -2,6 +2,8 @@
 namespace: home
 resources: 
 - esphome-pvc.yaml
+- mosquitto-pvc.yaml
+- zigbee2mqtt-shop-pvc.yaml
 helmCharts:
 - name: app-template
   releaseName: esphome
