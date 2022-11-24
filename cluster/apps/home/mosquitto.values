@@ -12,10 +12,10 @@ service:
         enabled: false
       mqtt:
         enabled: true
-        primary: true
-        type: LoadBalancer
-        externalTrafficPolicy: Local
         port: 1883
+        primary: true
+    type: LoadBalancer
+    externalTrafficPolicy: Local
 securityContext:
   runAsUser: 1883
   runAsGroup: 1883
