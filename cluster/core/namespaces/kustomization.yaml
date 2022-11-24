@@ -4,5 +4,6 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
 resources:
 - home.yaml
+- media.yaml
 - monitoring.yaml
 - nginx.yaml
