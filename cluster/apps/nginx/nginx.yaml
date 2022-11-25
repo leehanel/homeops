@@ -13,7 +13,7 @@ controller:
   publishService:
     enabled: true
   extraArgs:
-    default-ssl-certificate: 'cert-manager/internal.ctr-farm-tls'
+    default-ssl-certificate: 'nginx/i-ctr-farm-tls'
   extraEnvs:
     - name: TZ
       value: America/Chicago

@@ -5,7 +5,7 @@ metadata:
   name: "i.ctr.farm"
   namespace: cert-manager
 spec:
-  secretName: "internal.ctr.farm-tls"
+  secretName: "i-ctr-farm-tls"
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer

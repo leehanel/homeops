@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - install.yaml
   - issuer.yaml
-  - wildcard.yaml
 #generators:
 #  - cloudflare.ksops.yaml
   #- letsencrypt-production.yaml
