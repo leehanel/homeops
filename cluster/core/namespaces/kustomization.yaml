@@ -3,6 +3,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 resources:
+- dev.yaml
 - home.yaml
 - media.yaml
 - monitoring.yaml
