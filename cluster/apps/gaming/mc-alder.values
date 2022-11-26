@@ -1,0 +1,23 @@
+persistence:
+  storageClass: "ceph-block"
+  dataDir:
+    enabled: true
+    Size: 10Gi
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 100m
+  limits:
+    memory: 1024Mi
+minecraftServer:
+  eula: "TRUE"
+  version: "LATEST"
+  difficulty: normal
+  gameMode: survival
+  ops: "2535461125487756,2535469970251597"
+  maxPlayers: 40
+  levelName: city-3
+  serverName: "Alder's Birthday Realm"
+  cheats: true
+  serviceType: LoadBalancer
+  loadBalancerIP: 192.168.6.4
