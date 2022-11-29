@@ -16,6 +16,16 @@ service:
         primary: true
     type: LoadBalancer
     externalTrafficPolicy: Local
+configMaps:
+  config:
+    enabled: true
+    data:
+      mosquitto.conf: |
+        listener 1883
+        allow_anonymous true
+        persistence true
+        persistence_location /mosquitto/data
+        connection_messages false
 securityContext:
   runAsUser: 1883
   runAsGroup: 1883
