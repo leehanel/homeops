@@ -25,14 +25,23 @@ configMaps:
         allow_anonymous true
         persistence true
         persistence_location /mosquitto/data
-        connection_messages false
+        connection_messages true
 securityContext:
   runAsUser: 1883
   runAsGroup: 1883
 persistence:
+  config:
+    enabled: true
+    type: custom
+    mountPath: /mosquitto/config/mosquitto.conf
+    subPath: mosquitto.conf
+    volumeSpec:
+      configMap:
+        name: mosquitto-config
   data:
     enabled: true
     existingClaim: mosquitto-config-v1
+    mountPath: /mosquitto/data
 resources:
   requests:
     cpu: 100m
