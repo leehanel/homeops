@@ -37,7 +37,7 @@ persistence:
     subPath: mosquitto.conf
     volumeSpec:
       configMap:
-        name: mosquitto-config
+        name: mqtt-config
   data:
     enabled: true
     existingClaim: mosquitto-config-v1
