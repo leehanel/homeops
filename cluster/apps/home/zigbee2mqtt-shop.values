@@ -3,7 +3,7 @@ global:
   fullnameOverride: zigbee2mqtt
 image:
   repository: ghcr.io/koenkk/zigbee2mqtt
-  tag: latest-dev@sha256:2c70786ff3b6898bc04bc2dfc2921da227e0ff8fe435b21f59a377b9696e83e9
+  tag: latest-dev@sha256:8467b213008f0f8f1d1ccb6f099e9da160a5abf78bd759d528d53be2bd753d11
 env:
   TZ: America/Chicago
   ZIGBEE2MQTT_DATA: /data
