@@ -7,8 +7,9 @@ image:
 env:
   TZ: America/Chicago
   ZIGBEE2MQTT_DATA: /data
+  ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER: ezsp
   ZIGBEE2MQTT_CONFIG_SERIAL_PORT: tcp://192.168.3.19:8888
-  ZIGBEE2MQTT_CONFIG_MQTT_SERVER: mqtt://mqtt:1883
+  ZIGBEE2MQTT_CONFIG_MQTT_SERVER: mqtt://192.168.6.2:1883
   ZIGBEE2MQTT_CONFIG_ADVANCED_HOMEASSISTANT_DISCOVERY_TOPIC: homeassistant
   ZIGBEE2MQTT_CONFIG_ADVANCED_HOMEASSISTANT_LEGACY_ENTITY_ATTRIBUTES: "true"
   ZIGBEE2MQTT_CONFIG_ADVANCED_HOMEASSISTANT_LEGACY_TRIGGERS: "true"
@@ -39,7 +40,7 @@ config:
   permit_join: false
   mqtt:
     base_topic: zigbee2mqtt-shop
-    server: mqtt://mqtt:1883
+    server: mqtt://192.168.6.2:1883
   serial:
     port: tcp://192.168.2.37:8888
     adapter: ezsp
