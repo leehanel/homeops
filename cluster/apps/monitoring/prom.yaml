@@ -3,6 +3,7 @@ fullnameOverride: prometheus
 alertmanager:
   enabled: false
 nodeExporter:
+  enabled: true
   serviceMonitor:
     relabelings:
       - action: replace
