@@ -1,0 +1,8 @@
+---
+persistence:
+  enabled: true
+  storageClass: ceph-block
+  
+mysql:
+  persistence:
+    storageClass: ceph-block

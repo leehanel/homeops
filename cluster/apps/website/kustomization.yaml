@@ -1,0 +1,8 @@
+---
+namespace: web
+helmCharts:
+- name: ghost
+  repo: https://charts.bitnami.com/bitnami
+  namespace: web
+  releaseName: kysh-academy
+  valuesFile: ghost.values
