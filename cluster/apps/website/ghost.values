@@ -3,6 +3,7 @@ image:
   repository: ghost
   tag: 5.26.1
 env:
+  url: "https://kysh.academy"
   database__client: mysql
   database__connection__host: 192.168.0.162
   database__connection__user: ghost
