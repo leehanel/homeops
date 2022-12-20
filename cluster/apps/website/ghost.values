@@ -18,3 +18,11 @@ persistence:
     enabled: true
     mountPath: /var/lib/ghost/content
     existingClaim: ghost-content-pvc
+ingress:
+  main:
+    enabled: true
+    hosts:
+    - ghost.i.ctr.farm
+    - kysh.academy
+    - www.kysh.academy
+    
