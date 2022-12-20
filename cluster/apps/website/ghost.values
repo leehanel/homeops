@@ -4,5 +4,8 @@ persistence:
   storageClass: ceph-block
   
 mysql:
-  persistence:
-    storageClass: ceph-block
+  enabled: false
+  externalDatabase:
+    host: 192.168.0.162
+    existingSecret: ghost-mysql-secret
+
