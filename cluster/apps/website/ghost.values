@@ -1,11 +1,20 @@
 ---
+image:
+  repository: ghost
+  tag: 5.26.1
+env:
+  database__client: mysql
+  database__connection__host: 192.168.0.162
+  database__connection__user: ghost
+  database__connection__password: ghost_password
+  database__connection__database: ghost
+service:
+  main:
+    ports:
+      http:
+        port: 2368
 persistence:
-  enabled: true
-  storageClass: ceph-block
-  
-mysql:
-  enabled: false
-  externalDatabase:
-    host: 192.168.0.162
-    existingSecret: ghost-mysql-secret
-
+  content:
+    enabled: true
+    mountPath: /var/lib/ghost/content
+    existingClaim: ghost-content-pvc
