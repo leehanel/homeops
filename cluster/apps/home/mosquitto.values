@@ -46,6 +46,11 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /mosquitto/external_config
+  mosquitto-secrets:
+    enabled: true
+    type: secret
+    name: mosquitto-secrets
+    mountPath: "-"
 resources:
   requests:
     cpu: 100m
