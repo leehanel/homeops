@@ -42,7 +42,24 @@ persistence:
     enabled: true
     existingClaim: mosquitto-config-v1
     mountPath: /mosquitto/data
+  external-config:
+    enabled: true
+    type: emptyDir
+    mountPath: /mosquitto/external_config
 resources:
   requests:
     cpu: 100m
     memory: 250Mi
+initContainers:
+  copy-config:
+    image: eclipse-mosquitto:2.0.15@sha256:29c92f9144d4e65f7e647694d4b6aa7f0ac6a995bd102251ea05f7edf258ad20
+    command:
+      - "/bin/sh"
+      - -c
+    args:
+      - cp /data/mosquitto_secrets/* /data/external_config/ && mosquitto_passwd -U /data/external_config/mosquitto_pwd
+    volumeMounts:
+      - name: mosquitto-secrets
+        mountPath: /data/mosquitto_secrets
+      - name: external-config
+        mountPath: /data/external_config
