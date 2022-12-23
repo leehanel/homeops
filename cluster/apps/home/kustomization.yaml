@@ -1,9 +1,12 @@
 ---
 namespace: home
 resources: 
+- allsky-public.yaml
 - esphome-pvc.yaml
 - mosquitto-pvc.yaml
+- mosquitto-secrets.yaml
 - zigbee2mqtt-shop-pvc.yaml
+- zigbee2mqtt-shop-secrets.yaml
 helmCharts:
 - name: app-template
   repo: https://bjw-s.github.io/helm-charts/
@@ -22,7 +25,7 @@ helmCharts:
 - name: app-template
   repo: https://bjw-s.github.io/helm-charts/
   namespace: home
-  version: 1.1.3
-  releaseName: mosquitto.values
+  version: 1.2.0
+  releaseName: mosquitto
   valuesFile: mosquitto.values
   
