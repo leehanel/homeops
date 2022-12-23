@@ -1,0 +1,10 @@
+---
+namespace: security
+helmcharts:
+- name: app-template
+  repo: https://bjw-s.github.io/helm-charts/
+  namespace: security
+  version: 1.2.0
+  releaseName: onepassword-connect
+  valuesFile: onepassword-connect.values
+  

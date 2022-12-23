@@ -9,4 +9,5 @@ resources:
 - media.yaml
 - monitoring.yaml
 - nginx.yaml
+- security.yaml
 - web.yaml
