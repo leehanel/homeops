@@ -1,6 +1,6 @@
 ---
 namespace: security
-helmcharts:
+helmcHarts:
 - name: app-template
   repo: https://bjw-s.github.io/helm-charts/
   namespace: security
