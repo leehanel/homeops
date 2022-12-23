@@ -7,9 +7,9 @@ helmCharts:
   version: 1.2.0
   releaseName: onepassword-connect
   valuesFile: onepassword-connect.values
-  
 - repo: https://charts.external-secrets.io
   name: external-secrets
+  releaseName: external-secrets
   namespace: security
   version: 0.7.0
   valuesFile: external-secrets.values
