@@ -13,3 +13,5 @@ helmCharts:
   namespace: security
   version: 0.7.0
   valuesFile: external-secrets.values
+resources:
+- clustersecretstore.yaml
