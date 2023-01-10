@@ -14,7 +14,7 @@ ingress:
     enabled: true
     ingressClassName: ingress-internal
     path: /
-    pathType: prefix
+    pathType: Prefix
     hosts:
     - &host emqx.i.ctr.farm
     tls:
