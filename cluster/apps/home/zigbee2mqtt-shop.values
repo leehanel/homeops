@@ -50,6 +50,7 @@ service:
     ports:
       http:
         port: 8080
+
 persistence:
   config:
     enabled: true
