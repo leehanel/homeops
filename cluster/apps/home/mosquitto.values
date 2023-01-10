@@ -1,74 +1,39 @@
-global:
-  nameOverride: mqtt
-  fullnameOverride: mqtt
 image:
-  repository: ghcr.io/k8s-at-home/eclipse-mosquitto
-  tag: v2.0.15
+ repository: public.ecr.aws/emqx/emqx
+replicaCount: 3
+recreatePods: true
+emqxConfig:
+  EMQX_ALLOW_ANONYMOUS: "false"
+  EMQX_AUTH__MNESIA__PASSWORD_HASH: plain
 service:
-  main:
+  type: LoadBalancer
+  externalIPs: ["192.168.6.3"]
+  externalTrafficPolicy: Local
+ingeress:
+  dashboard:
     enabled: true
-    ports:
-      http:
-        enabled: false
-      mqtt:
-        enabled: true
-        port: 1883
-        primary: true
-    type: LoadBalancer
-    externalTrafficPolicy: Local
-configMaps:
-  config:
-    enabled: true
-    data:
-      mosquitto.conf: |
-        connection_messages true
-        per_listener_settings false
-        listener 1883
-        allow_anonymous false
-        persistence true
-        persistence_location /mosquitto/data
-        autosave_interval 1800
-        autosave_interval 60
-        password_file /mosquitto/external_config/mosquitto_pwd
-securityContext:
-  runAsUser: 1883
-  runAsGroup: 1883
+    ingressClassName: ingress-internal
+    path: /
+    pathType: prefix
+    hosts:
+    - &host emqx.i.ctr.farm
+    tls:
+    - hosts:
+      - *host
 persistence:
-  config:
-    enabled: true
-    type: custom
-    mountPath: /mosquitto/config/mosquitto.conf
-    subPath: mosquitto.conf
-    volumeSpec:
-      configMap:
-        name: mqtt-config
-  data:
-    enabled: true
-    existingClaim: mosquitto-config-v1
-    mountPath: /mosquitto/data
-  external-config:
-    enabled: true
-    type: emptyDir
-    mountPath: /mosquitto/external_config
-  mosquitto-secrets:
-    enabled: true
-    type: secret
-    name: mosquitto-secrets
-    mountPath: "-"
-resources:
-  requests:
-    cpu: 100m
-    memory: 250Mi
-initContainers:
-  copy-config:
-    image: eclipse-mosquitto:2.0.15@sha256:29c92f9144d4e65f7e647694d4b6aa7f0ac6a995bd102251ea05f7edf258ad20
-    command:
-      - "/bin/sh"
-      - -c
-    args:
-      - cp /data/mosquitto_secrets/* /data/external_config/ && mosquitto_passwd -U /data/external_config/mosquitto_pwd
-    volumeMounts:
-      - name: mosquitto-secrets
-        mountPath: /data/mosquitto_secrets
-      - name: external-config
-        mountPath: /data/external_config
+  enabled: true
+  storageClassName: ceph-block
+  size: 100Mi
+valuesFrom:
+- targetPath: emqxConfig.EMQX_DASHBOARD__DEFAULT_PASSWORD
+  kind: Secret
+  name: mosquitto-secrets
+  valuesKey: mosquitto_pwd
+- targetPath: emqxConfig.EMQX_AUTH__USER__1__USERNAME
+  kind: Secret
+  name: mosquitto-secrets
+  valuesKey: mosquitto_pwd
+- targetPath: emqxConfig.EMQX_AUTH__USER__1__PASSWORD
+  kind: Secret
+  name: mosquitto-secrets
+  valuesKey: mosquitto_pwd
