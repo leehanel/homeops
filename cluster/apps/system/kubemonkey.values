@@ -3,5 +3,5 @@ config:
   blacklistedNamespaces: [""]
   debug:
     enabled: true
-  runHour: 18
+  runHour: 8
 
