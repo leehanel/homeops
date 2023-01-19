@@ -1,0 +1,7 @@
+---
+config:
+  blacklistedNamespaces: [""]
+  debug:
+    enabled: true
+  runHour: 18
+

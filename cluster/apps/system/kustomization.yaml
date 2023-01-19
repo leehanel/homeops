@@ -1,0 +1,8 @@
+---
+namespace: kube-system
+helmCharts:
+- name: kubmonkey
+  version: 1.5.0
+  repo: https://asobti.github.io/kube-monkey/charts/repo
+  valuesFile: kubemonkey.values
+  namespace: kube-system
