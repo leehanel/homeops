@@ -1,7 +1,7 @@
 ---
 namespace: kube-system
 helmCharts:
-- name: kubmonkey
+- name: kube-monkey
   version: 1.5.2
   repo: https://asobti.github.io/kube-monkey/charts/repo
   valuesFile: kubemonkey.values
