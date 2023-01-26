@@ -1,6 +1,6 @@
 global:
-  nameOverride: esphome
-  fullnameOverride: esphome
+  nameOverride:  intel-gpu-plugin
+  fullnameOverride: intel-gpu-plugin
 controller:
   type: daemonset
   strategy: RollingUpdate
@@ -51,4 +51,4 @@ affinity:
             - key: feature.node.kubernetes.io/custom-intel-gpu
               operator: In
               values:
-            - "true"
+                - "true"

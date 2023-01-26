@@ -11,12 +11,13 @@ helmCharts:
   repo: https://kubernetes-sigs.github.io/node-feature-discovery/charts
   namespace: kube-system
   valuesFile: nfd.values
-- name: intel-device-plugins-operator
-  version: 0.25.1
-  repo: https://intel.github.io/helm-charts
-  namespace: kube-system
-- name: intel-device-plugins-gpu
-  version: 0.25.1
-  repo: https://intel.github.io/helm-charts
-  namespace: kube-system
-  valuesFile: intel.values
+- name: app-template
+  repo: https://bjw-s.github.io/helm-charts/
+  namespace kube-system
+  version: 1.2.1
+  releaseName: intel-gpu-plugin
+  valuesFile: intel-gpu-plugin.values
+  
+global:
+  nameOverride: esphome
+  fullnameOverride: esphome
