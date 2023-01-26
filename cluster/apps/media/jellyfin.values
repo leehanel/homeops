@@ -1,0 +1,52 @@
+
+image:
+  repository: linuxserver/jellyfin
+  tag: 10.8.9
+imagePullSecrets:
+  - name: docker-registry
+env:
+  JELLYFIN_CACHE_DIR: /config/cache
+  TZ: "UTC"
+dnsConfig:
+  options:
+  - name: ndots
+    value: "2"
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "ingress-internal"
+    hosts:
+      - host: jellyfin.i.ctr.farm
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - jellyfin.i.ctr.farm
+persistence:
+  config:
+    enabled: true
+    existingClaim: jellyfin-config
+  transcode:
+    enabled: true
+    type: emptyDir
+  media:
+    enabled: true
+    type: custom
+    volumeSpec:
+      nfs:
+        server: "192.168.0.119"
+        path: /tank/lhanel/jellyfin
+    mountPath: /media
+resources:
+  requests:
+    memory: 3Gi
+    cpu.intel.com/i915: 1
+  limits:
+    memory: 4Gi
+    cpu.intel.com/i915: 1
+service:
+  main:
+    ports:
+      http:
+        port: 8096
