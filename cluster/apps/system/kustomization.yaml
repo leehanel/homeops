@@ -6,3 +6,17 @@ helmCharts:
   repo: https://asobti.github.io/kube-monkey/charts/repo
   valuesFile: kubemonkey.values
   namespace: kube-system
+- name: node-feature-discovery
+  version: 0.12.0
+  repo: https://kubernetes-sigs.github.io/node-feature-discovery/charts
+  namespace: kube-system
+  valuesFile: nfd.values
+- name: intel-device-plugins-operator
+  version: 0.25.1
+  repo: https://intel.github.io/helm-charts
+  namespace: kube-system
+- name: intel-device-plugins-gpu
+  version: 0.25.1
+  repo: https://intel.github.io/helm-charts
+  namespace: kube-system
+  valuesFile: intel.values
