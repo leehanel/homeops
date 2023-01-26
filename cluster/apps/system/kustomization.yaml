@@ -17,7 +17,3 @@ helmCharts:
   version: 1.2.1
   releaseName: intel-gpu-plugin
   valuesFile: intel-gpu-plugin.values
-  
-global:
-  nameOverride: esphome
-  fullnameOverride: esphome
