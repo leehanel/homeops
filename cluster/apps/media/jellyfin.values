@@ -41,10 +41,10 @@ persistence:
 resources:
   requests:
     memory: 3Gi
-    cpu.intel.com/i915: 1
+    #cpu.intel.com/i915: 1
   limits:
     memory: 4Gi
-    cpu.intel.com/i915: 1
+    #cpu.intel.com/i915: 1
 service:
   main:
     ports:
