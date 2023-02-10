@@ -68,10 +68,9 @@ prometheus:
             requests:
               storage: 100Gi
     additionalScrapeConfigs:
-      - job_name: speedtest
-        scrape_interval: 60m
-        scrape_timeout:  60s
       - job_name: "external-node-exporter"
+        scrape_interval: 15
+        scrape_timeout:  5s
         honor_timestamps: true
         static_configs:
           - targets:
