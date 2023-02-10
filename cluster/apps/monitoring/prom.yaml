@@ -10,7 +10,7 @@ prometheus-node-exporter:
   enabled: true
   fullnameOverride: node-exporter
   prometheus:
-    monitor
+    monitor:
       relabelings:
       - action: replace
         regex: (.*)
