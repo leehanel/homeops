@@ -9,9 +9,6 @@ kube-state-metrics:
 prometheus-node-exporter:
   enabled: true
   fullnameOverride: node-exporter
-  prometheus:
-    monitor:
-      enabled: true
 grafana:
   enabled: false
 kubelet:
@@ -51,7 +48,7 @@ prometheus:
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
-    retention: 14d
+    retention: 28d
     enableAdminAPI: true
     walCompression: true
     storageSpec:
@@ -69,6 +66,6 @@ prometheus:
         honor_timestamps: true
         static_configs:
           - targets:
-            - "pxe01.ctr.farm:9100"
+            - "pve01.ctr.farm:9100"
             - "192.168.0.120:9100"
             - "allsky.i.ctr.farm:9100"
