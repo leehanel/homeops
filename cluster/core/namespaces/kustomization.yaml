@@ -10,4 +10,5 @@ resources:
 - monitoring.yaml
 - nginx.yaml
 - security.yaml
+- volsync-system.yaml
 - web.yaml
