@@ -28,9 +28,11 @@ kubelet:
         sourceLabels:
           - node
         targetLabel: instance
-        #kubeApiServer:
-        #enabled: true
 # Setting this option to 0 disabled CPU limits
+nodeExporter:
+  enabled: true
+prometheus-node-exporter:
+  enabled: true
 prometheusOperator:
   configReloaderCpu: 0
 prometheus:
