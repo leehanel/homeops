@@ -6,8 +6,6 @@ nodeExporter:
   enabled: true
 kube-state-metrics:
   fullnameOverride: kube-state-metrics
-prometheus-node-exporter:
-  enabled: true
 grafana:
   enabled: false
 kubelet:
@@ -18,6 +16,12 @@ kubelet:
         sourceLabels:
           - node
         targetLabel: instance
+prometheus-node-exporter:
+  enabled: true
+  prometheus:
+    monitor:
+      selectorOverride:
+        app.kubernetes.io/name: prometheus-node-exporter
 prometheusOperator:
   configReloaderCpu: 0
 prometheus:
