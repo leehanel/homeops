@@ -8,16 +8,6 @@ kube-state-metrics:
   fullnameOverride: kube-state-metrics
 prometheus-node-exporter:
   enabled: true
-  fullnameOverride: node-exporter
-  prometheus:
-    monitor:
-      relabelings:
-      - action: replace
-        regex: (.*)
-        replacement: $1
-        sourceLabels:
-          - __meta_kubernetes_pod_node_name
-        targetLabel: kubernetes_node
 grafana:
   enabled: false
 kubelet:
@@ -28,11 +18,6 @@ kubelet:
         sourceLabels:
           - node
         targetLabel: instance
-# Setting this option to 0 disabled CPU limits
-nodeExporter:
-  enabled: true
-prometheus-node-exporter:
-  enabled: true
 prometheusOperator:
   configReloaderCpu: 0
 prometheus:
