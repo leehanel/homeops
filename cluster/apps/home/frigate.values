@@ -1,5 +1,7 @@
 global:
   fullnameOverride: frigate
+controller:
+  type: statefulset
 image:
   repository: ghcr.io/blakeblackshear/frigate
   tag: 0.12.0-beta9
@@ -17,12 +19,13 @@ ingress:
     tls:
       - hosts:
           - "frigate.ctr.farm"
-ports:
-  http:
-    port: &port 5000
-  rtsp:
-    enabled: true
-    port: 8554
+service:
+  ports:
+    http:
+      port: &port 5000
+    rtsp:
+      enabled: true
+      port: 8554
 liveness: &probes
   enabled: true
   custom: true
