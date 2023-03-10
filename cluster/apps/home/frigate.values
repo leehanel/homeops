@@ -1,0 +1,84 @@
+global:
+  fullnameOverride: frigate
+image:
+  repository: ghcr.io/blakeblackshear/frigate
+  tag: 0.12.0-beta9
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "internal"
+    annotations:
+       kubernetes.io/ingress.class: "internal"
+    hosts:
+      - host: "frigate.ctr.farm"
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - "frigate.ctr.farm"
+securityContext:
+  privileged: true
+coral:
+  enabled: true
+  hostPath: /dev/apex_0
+timezone: "America/Chicago"
+nodeSelector:
+  feature.node.kubernetes.io/custom-coral-tpu: true
+persistence:
+  cache:
+    enabled: true
+    type: emptyDir
+    medium: Memory
+    sizeLimit: 2Gi
+    mountPath: /dev/shm
+  data:
+    enabled: true
+    existingClaim: frigate-config-v1
+    mountPath: /data
+  media:
+    enabled: true
+    type: custom
+    volumeSpec:
+      nfs:
+        server: 192.168.0.120
+        path: /data/frigate
+    mountPath: /media
+env:
+  TZ: America/Chicago
+  FRIGATE_MQTT_USERNAME:
+    valueFrom:
+      secretKeyRef:
+        name: zigbee2mqtt-secrets
+        key: mqtt_password
+  FRIGATE_MQTT_PASSWORD:
+    valueFrom:
+      secretKeyRef:
+        name: zigbee2mqtt-secrets
+        key: mqtt_password
+config: |
+  mqtt:
+    host: 192.168.1.120
+  detectors:
+    coral_pci:
+      type: edgetpu
+      device: pci
+  cameras:
+    back:
+      ffmpeg:
+        inputs:
+          - path: rtsp://officecam:officecam@192.168.2.19/live
+            roles:
+              - detect
+              - rtmp
+              - clips
+              - record
+      width: 1920
+      height: 1080
+      best_image_timeout: 60
+      fps: 5
+      mqtt:
+        enabled: false
+      record:
+        enabled: True
+        retain_days: 30

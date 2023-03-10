@@ -30,14 +30,9 @@ helmCharts:
   releasename: mqtt
   valuesFile: mosquitto.values
   
-- name: frigate
+- name: app-template
   namespace: home
   version: 1.3.2
+  repo: https://bjw-s.github.io/helm-charts/
   releaseName: frigate
   valuesFile: frigate.values
-#- name: app-template
-#  repo: https://bjw-s.github.io/helm-charts/
-#  namespace: home
-#  version: 1.2.0
-#  releaseName: mosquitto
-#  valuesFile: mosquitto.values
