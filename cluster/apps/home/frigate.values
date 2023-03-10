@@ -23,6 +23,20 @@ ports:
   rtsp:
     enabled: true
     port: 8554
+liveness: &probes
+  enabled: true
+  custom: true
+  spec:
+    httpGet:
+      path: /api/version
+      port: *port
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 1
+    failureThreshold: 3
+readiness: *probes
+startup:
+  enabled: false
 securityContext:
   privileged: true
 coral:
