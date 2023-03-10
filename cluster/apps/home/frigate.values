@@ -24,7 +24,7 @@ coral:
   hostPath: /dev/apex_0
 timezone: "America/Chicago"
 nodeSelector:
-  feature.node.kubernetes.io/custom-coral-tpu: true
+  feature.node.kubernetes.io/custom-coral-tpu: "true"
 persistence:
   cache:
     enabled: true
