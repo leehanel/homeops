@@ -3,6 +3,7 @@ namespace: home
 resources: 
 - allsky-public.yaml
 - esphome-pvc.yaml
+- frigate-pvc.yaml
 - mosquitto-pvc.yaml
 - mosquitto-secrets.yaml
 - zigbee2mqtt-shop-pvc.yaml
@@ -29,6 +30,11 @@ helmCharts:
   releasename: mqtt
   valuesFile: mosquitto.values
   
+- name: frigate
+  namespace: home
+  version: 1.3.2
+  releaseName: frigate
+  valuesFile: frigate.values
 #- name: app-template
 #  repo: https://bjw-s.github.io/helm-charts/
 #  namespace: home
