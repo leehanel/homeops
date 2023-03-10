@@ -17,6 +17,12 @@ ingress:
     tls:
       - hosts:
           - "frigate.ctr.farm"
+ports:
+  http:
+    port: &port 5000
+  rtsp:
+    enabled: true
+    port: 8554
 securityContext:
   privileged: true
 coral:
