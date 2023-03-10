@@ -48,7 +48,7 @@ persistence:
     volumeSpec:
       nfs:
         server: 192.168.0.120
-        path: /data/frigate
+        path: /tank/lhanel/frigate
     mountPath: /media
 env:
   TZ: America/Chicago
