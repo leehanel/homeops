@@ -11,5 +11,6 @@ worker:
                 vendor: ["8086"]
         - name: "coral-tpu"
           matchOn:
-            - usbId:
-                vendor: ["1a6e", "18d1"]
+            - pciId:
+                class: ["089a"]
+                vendor: ["1ac1"]
