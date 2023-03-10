@@ -12,5 +12,4 @@ worker:
         - name: "coral-tpu"
           matchOn:
             - pciId:
-                class: ["089a"]
-                vendor: ["1ac1"]
+                vendor: ["1ac1", "089a"]
