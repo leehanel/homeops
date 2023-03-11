@@ -8,7 +8,6 @@ image:
 ingress:
   main:
     enabled: true
-    ingressClassName: "ingress-internal"
     annotations:
        kubernetes.io/ingress.class: "ingress-internal"
     hosts:
