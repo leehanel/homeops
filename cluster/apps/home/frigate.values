@@ -54,7 +54,7 @@ persistence:
     type: configMap
     name: frigate-config
     subpath: config.yaml
-    mountPath: /config/config.yaml
+    mountPath: /config/config.yml
     readOnly: true
   cache:
     enabled: true
