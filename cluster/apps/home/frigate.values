@@ -20,12 +20,13 @@ ingress:
       - hosts:
           - "frigate.ctr.farm"
 service:
-  ports:
-    http:
-      port: &port 5000
-    rtsp:
-      enabled: true
-      port: 8554
+  main:
+    ports:
+      http:
+        port: &port 5000
+      rtsp:
+        enabled: true
+        port: 8554
 liveness: &probes
   enabled: true
   custom: true
