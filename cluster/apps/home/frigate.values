@@ -8,17 +8,17 @@ image:
 ingress:
   main:
     enabled: true
-    ingressClassName: "internal"
+    ingressClassName: "ingress-internal"
     annotations:
-       kubernetes.io/ingress.class: "internal"
+       kubernetes.io/ingress.class: "ingress-internal"
     hosts:
-      - host: "frigate.ctr.farm"
+      - host: "frigate.i.ctr.farm"
         paths:
           - path: /
             pathType: Prefix
     tls:
       - hosts:
-          - "frigate.ctr.farm"
+          - "frigate.i.ctr.farm"
 service:
   main:
     ports:
