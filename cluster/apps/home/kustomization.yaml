@@ -3,6 +3,7 @@ namespace: home
 resources: 
 - allsky-public.yaml
 - esphome-pvc.yaml
+- frigate-config.yaml
 - frigate-pvc.yaml
 - mosquitto-pvc.yaml
 - mosquitto-secrets.yaml

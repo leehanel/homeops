@@ -50,6 +50,13 @@ timezone: "America/Chicago"
 nodeSelector:
   feature.node.kubernetes.io/custom-coral-tpu: "true"
 persistence:
+  config-file:
+    enabled: true
+    type: configMap
+    name: frigate-config
+    subpath: config.yaml
+    mountPath: /config/config.yaml
+    readOnly: true
   cache:
     enabled: true
     type: emptyDir
@@ -80,29 +87,3 @@ env:
       secretKeyRef:
         name: zigbee2mqtt-secrets
         key: mqtt_password
-config: |
-  mqtt:
-    host: 192.168.1.120
-  detectors:
-    coral_pci:
-      type: edgetpu
-      device: pci
-  cameras:
-    back:
-      ffmpeg:
-        inputs:
-          - path: rtsp://officecam:officecam@192.168.2.19/live
-            roles:
-              - detect
-              - rtmp
-              - clips
-              - record
-      width: 1920
-      height: 1080
-      best_image_timeout: 60
-      fps: 5
-      mqtt:
-        enabled: false
-      record:
-        enabled: True
-        retain_days: 30
