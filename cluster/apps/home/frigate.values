@@ -65,7 +65,7 @@ persistence:
     type: custom
     volumeSpec:
       nfs:
-        server: 192.168.0.120
+        server: 192.168.0.119
         path: /tank/lhanel/frigate
     mountPath: /media
 env:
