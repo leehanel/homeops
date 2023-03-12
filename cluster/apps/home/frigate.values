@@ -53,7 +53,6 @@ persistence:
     enabled: true
     type: configMap
     name: frigate-config
-    subpath: config.yaml
     mountPath: /config/config.yml
     readOnly: true
   cache:
@@ -86,3 +85,58 @@ env:
       secretKeyRef:
         name: zigbee2mqtt-secrets
         key: mqtt_password
+configMaps:
+  config:
+    enabled: true
+    data:
+      config.yml: |
+        mqtt:
+          host: 192.168.1.120
+          topic_prefix: frigate
+          user: "{FRIGATE_MQTT_USERNAME}"
+          password: "{FRIGATE_MQTT_PASSWORD}"
+        detectors:
+          coral_pci:
+            type: edgetpu
+            device: pci
+        cameras:
+          shop:
+            ffmpeg:
+              inputs:
+                - path: rtsp://shop:shop@192.168.1.30/live
+                  roles:
+                    - detect
+                    - rtmp
+                    - clips
+                    - record
+            width: 1920
+            height: 1080
+            best_image_timeout: 60
+            fps: 5
+            mqtt:
+              enabled: false
+            record:
+              enabled: True
+              retain_days: 30
+        snapshots:
+          enabled: true
+          timestamp: false
+          bounding_box: true
+          retain:
+            default: 2
+        record:
+          enabled: true
+          retain:
+            days: 2
+            mode: all
+          events:
+            retain:
+              default: 2
+              mode: active_objects
+        objects:
+          track: ["person"]
+          filters:
+            person:
+              min_area: 5000
+              max_area: 100000
+              threshold: 0.7
