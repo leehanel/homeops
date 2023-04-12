@@ -1,1 +1,4 @@
 ---
+securityContext:
+  capabilities:
+    add:  ["NET_RAW"]
