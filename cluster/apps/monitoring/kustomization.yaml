@@ -6,4 +6,9 @@ helmCharts:
   namespace: monitoring
   version: "45.9.1"
   valuesFile: prom.values
-  
+- name: prometheus-blackbox-exporter
+  releaseName: blackbox-exporter
+  repo: https://prometheus-community.github.io/helm-charts
+  namespace: monitoring
+  version: "7.7.0"
+  valuesFile: blackbox.values
