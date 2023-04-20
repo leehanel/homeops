@@ -9,7 +9,7 @@ ingress:
   main:
     enabled: true
     annotations:
-       kubernetes.io/ingress.class: "ingress-internal"
+    ingressClassName: ingress-internal
     hosts:
       - host: "frigate.i.ctr.farm"
         paths:
