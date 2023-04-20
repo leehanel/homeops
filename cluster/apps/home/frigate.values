@@ -109,8 +109,6 @@ configMaps:
                     - rtmp
                     - clips
                     - record
-            width: 1920
-            height: 1080
             best_image_timeout: 60
             fps: 5
             mqtt:
