@@ -7,7 +7,7 @@ persistence:
     existingClaim: esphome-config
 image:
   repository: ghcr.io/esphome/esphome
-  tag: ha256-f2ada2e88b6248a2bf0aecf1f27e52ed5ec7ad0e5f7e18dcf224704efecac1ca
+  tag: sha256:64e66fb3f55567bb660f9818cf9f2bae77b8188090836959a827d3262e3e7e62
 service:
   main:
     ports:
