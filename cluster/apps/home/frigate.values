@@ -110,7 +110,9 @@ configMaps:
                     - clips
                     - record
             best_image_timeout: 60
-            fps: 5
+            detect:
+              width: 1920
+              height: 1080
             mqtt:
               enabled: false
             record:
