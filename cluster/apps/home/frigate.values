@@ -136,7 +136,7 @@ configMaps:
             record:
               enabled: True
               retain_days: 30
-          shop:
+          road:
             ffmpeg:
               inputs:
                 - path: rtsp://shop:shop@192.168.1.115/live
