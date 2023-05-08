@@ -8,6 +8,7 @@ kube-state-metrics:
   fullnameOverride: kube-state-metrics
 grafana:
   enabled: false
+  forceDeployDashboards: true
 kubelet:
   enabled: true
   serviceMonitor:
