@@ -5,7 +5,8 @@ ingress:
     - grafana.i.ctr.farm
   ingressClassName: ingress-internal
   tls:
-    - hosts: grafana.i.ctr.farm
+    - hosts:
+      - grafana.i.ctr.farm
 persistence:
   enabled: true
   storageClassName: ceph-block
