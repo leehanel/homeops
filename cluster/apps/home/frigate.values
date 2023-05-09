@@ -139,7 +139,7 @@ configMaps:
           road:
             ffmpeg:
               inputs:
-                - path: rtsp://shop:shop@192.168.1.115/live
+                - path: rtsp://shop:shop@192.168.1.105/live
                   roles:
                     - detect
                     - rtmp
