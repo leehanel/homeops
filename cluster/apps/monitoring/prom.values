@@ -43,7 +43,7 @@ prometheus:
   thanosServiceMonitor:
     enabled: false
   prometheusSpec:
-    replicas: 1
+    replicas: 2
     replicaExternalLabelName: "replica"
     ruleSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
