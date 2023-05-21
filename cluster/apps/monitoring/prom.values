@@ -1,7 +1,15 @@
 ---
 fullnameOverride: prometheus
 alertmanager:
-  enabled: false
+  enabled: true
+  config:
+    ingress:
+      enabled: true
+      hosts:
+      - am.i.ctr.farm
+      tls:
+        hosts:
+        - am.i.ctr.farm
 nodeExporter:
   enabled: true
 kube-state-metrics:
