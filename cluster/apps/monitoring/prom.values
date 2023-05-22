@@ -7,8 +7,8 @@ alertmanager:
     hosts:
     - am.i.ctr.farm
     tls:
-      hosts:
-      - am.i.ctr.farm
+    -  hosts:
+       - am.i.ctr.farm
 nodeExporter:
   enabled: true
 kube-state-metrics:
