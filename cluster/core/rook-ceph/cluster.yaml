@@ -84,7 +84,7 @@ cephBlockPools:
     deviceClass: ssd
   storageClass:
     enabled: true
-    name: ceph-block
+    name: ceph-hybrid
     isDefault: true
     reclaimPolicy: Delete
     allowVolumeExpansion: true
