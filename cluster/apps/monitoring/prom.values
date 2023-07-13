@@ -67,6 +67,13 @@ prometheus:
             requests:
               storage: 100Gi
     additionalScrapeConfigs:
+      - job_name: "unifi-exporter"
+        scrape_interval: 15s
+        scrape_timeout:  5s
+        honor_timestamps: true
+        static_configs:
+          - targets:
+            - "192.168.0.120:9130/metrics"
       - job_name: "external-node-exporter"
         scrape_interval: 15s
         scrape_timeout:  5s
