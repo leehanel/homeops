@@ -68,7 +68,7 @@ prometheus:
               storage: 100Gi
     additionalScrapeConfigs:
       - job_name: 'speedtest-exporter'
-        scrape_interval: 1h
+        scrape_interval: 15m
         scrape_timeout: 1m
         static_configs:
           - targets: ['192.168.0.120:9798']

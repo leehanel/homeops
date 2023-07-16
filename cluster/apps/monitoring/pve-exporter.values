@@ -1,5 +1,6 @@
 global:
   fullnameOverride: pve-exporter
+replicas: 0
 controller:
   type: statefulset
 image:
