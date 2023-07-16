@@ -67,6 +67,11 @@ prometheus:
             requests:
               storage: 100Gi
     additionalScrapeConfigs:
+      - job_name: 'speedtest-exporter'
+        scrape_interval: 1h
+        scrape_timeout: 1m
+        static_configs:
+          - targets: ['192.168.0.120:9798']
       - job_name: "unifi-exporter"
         scrape_interval: 15s
         scrape_timeout:  5s
