@@ -10,3 +10,5 @@ ingress:
 persistence:
   enabled: true
   storageClassName: ceph-block
+testFramework:
+  enabled: false
