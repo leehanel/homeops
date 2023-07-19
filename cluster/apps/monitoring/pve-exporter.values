@@ -3,6 +3,13 @@ global:
 replicas: 0
 controller:
   type: statefulset
+env:
+  PVE_USER: monitoring
+  PVE_PASSWORD:
+    valueFrom:
+      secretKeyRef:
+        name: pve-secrets
+        key: pve
 image:
   repository: prompve/prometheus-pve-exporter
   tag: 2.3@sha256:c38a29b0fd0b8f776cc2770cfe844fc577b28e9be467626824053cfa6080624d

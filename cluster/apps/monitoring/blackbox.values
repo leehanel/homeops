@@ -1,4 +1,5 @@
 ---
+fullnameOverride: blackbox-exporter
 securityContext:
   capabilities:
     add:  ["NET_RAW"]
