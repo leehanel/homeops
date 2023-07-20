@@ -1,11 +1,11 @@
 global:
   fullnameOverride: pve-exporter
-replicas: 0
+replicas: 1
 controller:
   type: statefulset
 env:
-  PVE_USER: monitoring@pve
-  PVE_PASSWORD:
+  PVE_TOKEN_NAME: monitoring@pve!monitoring
+  PVE_TOKEN_VALUE:
     valueFrom:
       secretKeyRef:
         name: pve-secrets
@@ -21,7 +21,7 @@ service:
 livenessProbe:
   enabled: true
   path: /
-  port: 9221
+  port: *port
   initialDelaySeconds: 180
   periodSeconds: 20
   timeoutSeconds: 5
@@ -31,7 +31,7 @@ livenessProbe:
 readinessProbe:
   enabled: true
   path: /
-  port: 9221
+  port: *port
   initialDelaySeconds: 180
   periodSeconds: 20
   timeoutSeconds: 5
