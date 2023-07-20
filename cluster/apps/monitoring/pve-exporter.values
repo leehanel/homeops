@@ -5,7 +5,7 @@ controller:
   type: statefulset
 env:
   PVE_USER: monitoring@pve
-  PVE_TOKEN_NAME: "monitoring@pve!monitoring'
+  PVE_TOKEN_NAME: "monitoring@pve!monitoring"
   PVE_TOKEN_VALUE:
     valueFrom:
       secretKeyRef:
