@@ -1,0 +1,47 @@
+global:
+  fullnameOverride: changeio
+controller:
+  type: statefulset
+image:
+      repository: ghcr.io/dgtlmoon/changedetection.io
+      tag: "0.42.3"
+env:
+  TZ: America/Chicago
+  PORT: &port 5000
+  PUID: 568
+  PGID: 568
+  BASE_URL: https://cd.i.ctr.farm
+service:
+  main:
+    ports:
+      http:
+        port: *port
+ingress:
+  main:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - host: &host "cd.i.ctr.farm"
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - *host
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  fsGroupChangePolicy: OnRootMismatch
+volumeClaimTemplates:
+  - name: config
+    mountPath: /datastore
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ceph-block
+resources:
+  requests:
+    cpu: 10m
+    memory: 100Mi
+  limits:
+    memory: 500Mi
