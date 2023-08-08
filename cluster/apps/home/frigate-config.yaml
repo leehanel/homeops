@@ -16,10 +16,10 @@ data:
         type: edgetpu
         device: pci
     cameras:
-      shop:
+      goats:
         ffmpeg:
           inputs:
-            - path: rtsp://shop:shop@192.168.1.30/live
+            - path: rtsp://road:road@192.168.3.25/live
               roles:
                 - detect
                 - rtmp
