@@ -19,7 +19,7 @@ service:
 ingress:
   main:
     enabled: true
-    ingressClassName: nginx
+    ingressClassName: ingress-internal
     hosts:
       - host: &host "cd.i.ctr.farm"
         paths:
