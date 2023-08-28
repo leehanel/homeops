@@ -16,6 +16,24 @@ data:
         type: edgetpu
         device: pci
     cameras:
+      lillie:
+        ffmpeg:
+          inputs:
+            - path: rtsp://192.168.3.17:8554/video3_unicast
+              roles:
+                - detect
+                - rtmp
+                - clips
+                - record
+        width: 1920
+        height: 1080
+        best_image_timeout: 60
+        fps: 5
+        mqtt:
+          enabled: false
+        record:
+          enabled: True
+          retain_days: 30
       goats:
         ffmpeg:
           inputs:
