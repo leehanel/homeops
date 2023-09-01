@@ -4,6 +4,6 @@ helmCharts:
 - name: minecraft-bedrock
   repo: https://itzg.github.io/minecraft-server-charts/
   namespace: home
-  version: 2.0.0
+  version: 4.9.5
   releaseName: mc-alder
   valuesFile: mc-alder.values

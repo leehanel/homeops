@@ -13,10 +13,10 @@ minecraftServer:
   eula: "TRUE"
   version: "LATEST"
   difficulty: normal
-  gameMode: survival
+  gamemode: survival
   ops: "2535461125487756,2535469970251597"
   maxPlayers: 40
-  levelName: city-3
+  levelName: alder-01
   serverName: "Alder's Birthday Realm"
   cheats: true
   serviceType: LoadBalancer
