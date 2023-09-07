@@ -21,3 +21,7 @@ minecraftServer:
   cheats: true
   serviceType: LoadBalancer
   loadBalancerIP: 192.168.6.4
+livenessProbe:
+  initialDelaySeconds: 180
+readinessProbe:
+  initialDelaySeconds: 180
