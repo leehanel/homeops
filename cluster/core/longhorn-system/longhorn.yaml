@@ -1,0 +1,11 @@
+---
+persistence:
+  defaultClass: true
+  defaultFsType: xfs
+  defaultClassReplicaCount: 2
+  reclaimPolicy: Retain
+ingress:
+  enabled: true
+  ingressClassName: ingress-internal
+  tls: true
+  host: longhorn.i.ctr.farm
