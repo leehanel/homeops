@@ -6,6 +6,7 @@ resources:
 - dev.yaml
 - gaming.yaml
 - home.yaml
+- longhorn-system.yaml
 - media.yaml
 - monitoring.yaml
 - nginx.yaml
