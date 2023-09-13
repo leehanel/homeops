@@ -22,7 +22,7 @@ ingress:
       - *host
 persistence:
   enabled: true
-  storageClassName: ceph-block
+  storageClassName: longhorn
   size: 100Mi
 valuesFrom:
 - targetPath: emqxConfig.EMQX_DASHBOARD__DEFAULT_PASSWORD
