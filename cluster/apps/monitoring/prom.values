@@ -62,7 +62,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: "ceph-block"
+          storageClassName: longhorn
           resources:
             requests:
               storage: 100Gi

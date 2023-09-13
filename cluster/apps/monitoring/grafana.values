@@ -9,6 +9,6 @@ ingress:
       - grafana.i.ctr.farm
 persistence:
   enabled: true
-  storageClassName: ceph-block
+  storageClassName: longhorn
 testFramework:
   enabled: false
