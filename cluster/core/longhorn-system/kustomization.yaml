@@ -1,5 +1,7 @@
 ---
 namespace: longhorn-system
+resources:
+- service-monitor.yaml
 helmCharts:
 - name: longhorn
   releaseName:  longhorn
