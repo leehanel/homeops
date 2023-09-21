@@ -15,5 +15,5 @@ helmCharts:
   version: 1.5.1
   repo: https://bjw-s.github.io/helm-charts/
   namespace: media
-  releaseName: invidious
+  releaseName: invidious-server
   valuesFile: invidious.values
