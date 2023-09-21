@@ -1,12 +1,19 @@
 ---
 namespace: media
 resources:
--  jellyfin-pvc.yaml
+- jellyfin-pvc.yaml
+- external-secret.yaml
 helmCharts:
 - name: app-template
-  version: 1.1.3
+  version: 1.5.1
   repo: https://bjw-s.github.io/helm-charts/
   namespace: media
   releaseName: jellyfin
   valuesFile: jellyfin.values
   
+- name: app-template
+  version: 1.5.1
+  repo: https://bjw-s.github.io/helm-charts/
+  namespace: media
+  releaseName: invidious
+  valuesFile: invidious.values
