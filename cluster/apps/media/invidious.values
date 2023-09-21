@@ -21,7 +21,7 @@ service:
 ingress:
   main:
     enabled: true
-    ingressClassName: "nginx"
+    ingressClassName: "ingress-internal"
     annotations:
       auth.home.arpa/enabled: "true"
       external-dns.home.arpa/enabled: "true"
