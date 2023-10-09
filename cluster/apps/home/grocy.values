@@ -1,0 +1,51 @@
+controller:
+  type: statefulset
+
+image:
+  repository: linuxserver/grocy
+  tag: 4.0.3
+
+env:
+  TZ: Americas/Chicago
+
+ingress:
+  main:
+    enabled: true
+    ingressClassName: ingress-internal
+    hosts:
+      - host: &host grocy.i.ctr.farm
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - *host
+persistence:
+  config:
+    enabled: true
+    existingClaim: grocy-config
+    accessMode: ReadWriteOnce
+    size: 10Gi
+
+resources:
+  requests:
+    cpu: 20m
+    memory: 200M
+  limits:
+    memory: 200M
+service:
+  main:
+    ports:
+      http:
+        port: &port  80
+liveness: &probes
+  enabled: true
+  custom: true
+  spec:
+    httpGet:
+      port: *port
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 1
+    failureThreshold: 3
+readiness: *probes
