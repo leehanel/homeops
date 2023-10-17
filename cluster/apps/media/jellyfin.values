@@ -6,6 +6,7 @@ imagePullSecrets:
   - name: docker-registry
 env:
   JELLYFIN_CACHE_DIR: /config/cache
+  JELLYFIN_PublishedServerUrl: &host jellyfin.i.ctr.farm
   TZ: "UTC"
 dnsConfig:
   options:
@@ -16,13 +17,13 @@ ingress:
     enabled: true
     ingressClassName: "ingress-internal"
     hosts:
-      - host: jellyfin.i.ctr.farm
+      - host: *host
         paths:
           - path: /
             pathType: Prefix
     tls:
       - hosts:
-          - jellyfin.i.ctr.farm
+          - *host
 persistence:
   config:
     enabled: true
