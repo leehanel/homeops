@@ -157,24 +157,6 @@ configMaps:
             record:
               enabled: True
               retain_days: 30
-          shop:
-            ffmpeg:
-              inputs:
-                - path: rtsp://192.168.3.34:8554/video3_unicast
-                  roles:
-                    - detect
-                    - rtmp
-                    - clips
-                    - record
-            best_image_timeout: 60
-            detect:
-              width: 1920
-              height: 1080
-            mqtt:
-              enabled: false
-            record:
-              enabled: True
-              retain_days: 30
         snapshots:
           enabled: true
           timestamp: false
