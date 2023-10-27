@@ -121,6 +121,24 @@ configMaps:
             record:
               enabled: True
               retain_days: 30
+          shop:
+            ffmpeg:
+              inputs:
+                - path: rtsp://shop:shop@192.168.1.115/live
+                  roles:
+                    - detect
+                    - rtmp
+                    - clips
+                    - record
+            best_image_timeout: 60
+            detect:
+              width: 1920
+              height: 1080
+            mqtt:
+              enabled: false
+            record:
+              enabled: True
+              retain_days: 30
           lillie:
             ffmpeg:
               inputs:
