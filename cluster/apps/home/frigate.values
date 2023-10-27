@@ -175,7 +175,11 @@ configMaps:
               objects:
                 person: 15
         objects:
-          track: ["person"]
+          track: 
+          - bicycle
+          - car
+          - motorcycle
+          - person
           filters:
             person:
               min_area: 5000
