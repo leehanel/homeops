@@ -103,7 +103,7 @@ configMaps:
             type: edgetpu
             device: pci
         cameras:
-          goats:
+          road:
             ffmpeg:
               inputs:
                 - path: rtsp://road:road@192.168.3.25/live
