@@ -157,6 +157,9 @@ configMaps:
             record:
               enabled: True
               retain_days: 30
+        ffmpeg:
+          output_args:
+            record: preset-record-generic-audio-aac
         snapshots:
           enabled: true
           timestamp: false
