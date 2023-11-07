@@ -1,7 +1,7 @@
 ---
 image:
   repository: ghost
-  tag: 5.26
+  tag: 5.72.0
 env:
   url: "https://kysh.academy"
   database__client: mysql
