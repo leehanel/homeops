@@ -22,8 +22,13 @@ persistence:
 ingress:
   main:
     enabled: true
+    ingressClassName: ingress-internal
     hosts:
-    - ghost.i.ctr.farm
-    - kysh.academy
-    - www.kysh.academy
-    
+      - host: ghost.i.ctr.farm
+      - host: kysh.academy
+      - host: www.kysh.academy
+    tls:
+      - hosts:
+        - ghost.i.ctr.farm
+        - kysh.academy
+        - www.kysh.academy
