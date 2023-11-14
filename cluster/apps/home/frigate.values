@@ -111,7 +111,7 @@ configMaps:
           road:
             ffmpeg:
               inputs:
-                - path: rtsp://road:road@192.168.3.25/live
+                - path: rtsp://road:road@192.168.255.18/live
                   roles:
                     - detect
                     - rtmp
@@ -129,7 +129,7 @@ configMaps:
           shop:
             ffmpeg:
               inputs:
-                - path: rtsp://shop:shop@192.168.1.115/live
+                - path: rtsp://road:road@192.168.3.35/live
                   roles:
                     - detect
                     - rtmp
@@ -144,7 +144,7 @@ configMaps:
             record:
               enabled: True
               retain_days: 30
-          lillie:
+          office:
             ffmpeg:
               inputs:
                 - path: rtsp://192.168.3.17:8554/video3_unicast
