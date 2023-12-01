@@ -30,6 +30,10 @@ prometheus-node-exporter:
     monitor:
       selectorOverride:
         app.kubernetes.io/name: prometheus-node-exporter
+  extraArgs:
+    - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
+    - --collector.textfile.directory=/var/lib/nodeexporter
+    - --collector.filesystem.fs-types-exclude=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$
 prometheusOperator:
   configReloaderCpu: 0
 prometheus:
@@ -85,7 +89,9 @@ prometheus:
         honor_timestamps: true
         static_configs:
           - targets:
-            - "pve01.ctr.farm:9100"
+            - "pve01.i.ctr.farm:9100"
+            - "pve02.i.ctr.farm:9100"
+            - "pve02.i.ctr.farm:9100"
             - "192.168.0.120:9100"
             - "allsky.i.ctr.farm:9100"
       - job_name: 'pve'
