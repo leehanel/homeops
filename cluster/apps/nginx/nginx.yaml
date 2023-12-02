@@ -1,5 +1,6 @@
 ---
 controller:
+  replicaCount: 2
   electionID: ingress-internal
   ingressClassByName: true
   ingressClassResource:
