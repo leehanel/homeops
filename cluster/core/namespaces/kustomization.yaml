@@ -9,6 +9,7 @@ resources:
 - longhorn-system.yaml
 - media.yaml
 - monitoring.yaml
+- networking.yaml
 - nginx.yaml
 - security.yaml
 - volsync-system.yaml
