@@ -1,5 +1,5 @@
 ---
-namespace: rook-ceph
+#namespace: rook-ceph
 resources:
 - namespace.yaml
 helmCharts:
