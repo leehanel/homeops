@@ -1,12 +1,12 @@
 ---
-helmCharts:
-- name: app-template
-  repo: https://charts.bitnami.com/bitnami
-  repo: https://bjw-s.github.io/helm-charts/
-  version: 1.2.0
-  namespace: web
-  releaseName: kysh-academy
-  valuesFile: ghost.values
+#helmCharts:
+#- name: app-template
+#  #repo: https://charts.bitnami.com/bitnami
+#  repo: https://bjw-s.github.io/helm-charts/
+#  version: 1.2.0
+#  namespace: web
+#  releaseName: kysh-academy
+#  valuesFile: ghost.values
 namespace: web
-resources:
-- ghost-pvc.yaml
+#resources:
+#- ghost-pvc.yaml
