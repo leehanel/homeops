@@ -1,6 +1,6 @@
 ---
 persistence:
-  defaultClass: true
+  defaultClass: false
   defaultFsType: xfs
   defaultClassReplicaCount: 2
   reclaimPolicy: Retain
