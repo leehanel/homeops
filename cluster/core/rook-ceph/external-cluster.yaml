@@ -1,5 +1,7 @@
 ---
 cephClusterSpec:
+  cephVersion:
+    image: quay.io/ceph/ceph:v18.2.0
   external:
     enable: true
   crashCollector:
@@ -10,3 +12,6 @@ cephClusterSpec:
         disabled: false
         interval: 45s
 #cephBlockPools: I#pvc
+cephBlockPools: {}
+cephFileSystems: {}
+cephObjectStores: {}
