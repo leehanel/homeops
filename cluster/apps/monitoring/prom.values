@@ -97,7 +97,9 @@ prometheus:
       - job_name: 'pve'
         static_configs:
           - targets:
-            - pve01.ctr.farm
+            - pve01.i.ctr.farm
+            - pve02.i.ctr.farm
+            - pve03.i.ctr.farm
         metrics_path: /pve
         params:
           module: [default]
