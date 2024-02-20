@@ -13,7 +13,7 @@ initContainers:
           name: invidious
 image:
   repository: quay.io/invidious/invidious
-  tag: latest@sha256:9a9c97a85ee8aaee2447898bdb2151482fd372e62a63348eb8dbb62216a8b5bd
+  tag: 2024.02.18-e8a369
 envFrom: *envFrom
 service:
   main:
