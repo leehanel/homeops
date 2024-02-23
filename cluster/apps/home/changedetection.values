@@ -41,7 +41,7 @@ volumeClaimTemplates:
     mountPath: /datastore
     accessMode: ReadWriteOnce
     size: 1Gi
-    storageClass: longhorn
+    storageClass: ceph-rbd
 resources:
   requests:
     cpu: 10m
