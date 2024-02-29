@@ -91,7 +91,8 @@ prometheus:
           - targets:
             - "pve01.i.ctr.farm:9100"
             - "pve02.i.ctr.farm:9100"
-            - "pve02.i.ctr.farm:9100"
+            - "pve03.i.ctr.farm:9100"
+            - "pve04.i.ctr.farm:9100"
             - "192.168.254.119:9100"
             - "192.168.254.120:9100"
             - "allsky.i.ctr.farm:9100"
@@ -101,6 +102,7 @@ prometheus:
             - pve01.i.ctr.farm
             - pve02.i.ctr.farm
             - pve03.i.ctr.farm
+            - pve04.i.ctr.farm
         metrics_path: /pve
         params:
           module: [default]
