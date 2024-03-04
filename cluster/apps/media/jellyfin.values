@@ -37,7 +37,7 @@ persistence:
     volumeSpec:
       nfs:
         server: "192.168.0.119"
-        path: /tank/lhanel/jellyfin
+        path: /Tank/lhanel/jellyfin
     mountPath: /media
 resources:
   requests:
