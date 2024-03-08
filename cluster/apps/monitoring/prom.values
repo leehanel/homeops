@@ -123,7 +123,9 @@ prometheus:
             - octavia.anarc.at
             - nexthop.anarc.at
             - dns.google
-            - 192.168.0.1
+            - 192.168.254.1
+            - 192.168.255.36
+            - 192.168.255.23
         relabel_configs:
           - source_labels: [__address__]
             target_label: __param_target
