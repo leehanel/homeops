@@ -122,6 +122,24 @@ configMaps:
             record:
               enabled: True
               retain_days: 30
+          new:
+            ffmpeg:
+              inputs:
+                - path: rtsp://http://192.168.255.169/live
+                  roles:
+                    - detect
+                    - rtmp
+                    - clips
+                    - record
+            best_image_timeout: 60
+            detect:
+              width: 2592
+              height: 1944
+            mqtt:
+              enabled: false
+            record:
+              enabled: True
+              retain_days: 30
           shop:
             ffmpeg:
               inputs:
