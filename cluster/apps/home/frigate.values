@@ -104,28 +104,10 @@ configMaps:
             type: edgetpu
             device: pci
         cameras:
-          road:
-            ffmpeg:
-              inputs:
-                - path: rtsp://road:road@192.168.255.18/live
-                  roles:
-                    - detect
-                    - rtmp
-                    - clips
-                    - record
-            best_image_timeout: 60
-            detect:
-              width: 1920
-              height: 1080
-            mqtt:
-              enabled: false
-            record:
-              enabled: True
-              retain_days: 30
           new:
             ffmpeg:
               inputs:
-                - path: rtsp://http://192.168.255.169/live
+                - path: rtsp://192.168.255.169/live
                   roles:
                     - detect
                     - rtmp
@@ -144,24 +126,6 @@ configMaps:
             ffmpeg:
               inputs:
                 - path: rtsp://road:road@192.168.3.35/live
-                  roles:
-                    - detect
-                    - rtmp
-                    - clips
-                    - record
-            best_image_timeout: 60
-            detect:
-              width: 1920
-              height: 1080
-            mqtt:
-              enabled: false
-            record:
-              enabled: True
-              retain_days: 30
-          office:
-            ffmpeg:
-              inputs:
-                - path: rtsp://192.168.3.17:8554/video3_unicast
                   roles:
                     - detect
                     - rtmp
