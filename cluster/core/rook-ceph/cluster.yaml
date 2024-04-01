@@ -12,6 +12,8 @@ ingress:
       path: "/ceph-dashboard(/|$)(.*)"
     ingressClassName: ingress-internal
 cephClusterSpec:
+  dataDirHostPath:
+     /var/lib/rook-internal
   crashCollector:
     disable: true
   dashboard:
