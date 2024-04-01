@@ -20,4 +20,4 @@ helmCharts:
   repo: https://charts.rook.io/release
   namespace: rook-ceph
   version:  v1.13.4
-  valuesFile: external-cluster.yaml
+  valuesFile: cluster.yaml
