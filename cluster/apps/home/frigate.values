@@ -104,6 +104,23 @@ configMaps:
             type: edgetpu
             device: pci
         cameras:
+          road:
+            ffmpeg:
+              inputs:
+                - path: rtsp://shop:shop@192.168.3.35/live
+                  roles:
+                    - detect
+                    - rtmp
+                    - clips
+                    - record
+            best_image_timeout: 60
+            detect:
+              width: 2592
+              height: 1944
+            mqtt:
+              enabled: false
+            record:
+              enabled: True
           new:
             ffmpeg:
               inputs:
