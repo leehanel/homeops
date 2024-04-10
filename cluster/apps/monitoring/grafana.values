@@ -9,6 +9,6 @@ ingress:
       - grafana.i.ctr.farm
 persistence:
   enabled: true
-  storageClassName: ceph-rbd
+  storageClassName: ceph-blockpool
 testFramework:
   enabled: false
