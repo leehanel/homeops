@@ -41,6 +41,7 @@ prometheus:
     options:
       - name: ndots
         value: "2"
+  resources: {}
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"

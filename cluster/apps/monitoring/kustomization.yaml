@@ -6,7 +6,7 @@ helmCharts:
 - name: kube-prometheus-stack
   repo: https://prometheus-community.github.io/helm-charts
   namespace: monitoring
-  version: "45.29.0"
+  version: "58.0.0"
   valuesFile: prom.values
 - name: grafana
   repo: https://grafana.github.io/helm-charts
