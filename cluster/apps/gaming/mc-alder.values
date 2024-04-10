@@ -1,5 +1,5 @@
 persistence:
-  storageClass: "longhorn"
+  storageClass: "ceph-blockpool"
   dataDir:
     enabled: true
     Size: 10Gi
