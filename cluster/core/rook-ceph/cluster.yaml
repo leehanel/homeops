@@ -51,7 +51,6 @@ cephClusterSpec:
       limits:
         cpu: "500m"
         memory: "2096Mi"
-cephFileSystems: []
 cephBlockPools:
 - name: ceph-blockpool
   spec:
