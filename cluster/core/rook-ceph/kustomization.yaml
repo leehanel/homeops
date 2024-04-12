@@ -21,3 +21,15 @@ helmCharts:
   namespace: rook-ceph
   version:  v1.13.4
   valuesFile: cluster.yaml
+patches:
+- target:
+    kind: CephFilesystem
+    name: ceph-filesystem
+    namespace: rook-ceph
+  patch: |-
+    - op: replace
+      path: /spec/metadataServer/resources/requests/cpu
+      value: 50m
+    - op: replace
+      path: /spec/metadataServer/resources/requests/memory
+      value: 64Mi
