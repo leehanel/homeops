@@ -28,6 +28,12 @@ cephClusterSpec:
           memory: "512Mi"
       limits:
         memory: "512Mi"
+    mds:
+      requests:
+          cpu: "50m"
+          memory: "50Mi"
+      limits:
+          memory: "512Mi"
     mgr:
       requests:
           cpu: "50m"
@@ -37,13 +43,13 @@ cephClusterSpec:
     mon:
       requests:
           cpu: "50m"
-          memory: "512Mi"
+          memory: "64Mi"
       limits:
         memory: "512Mi"
     osd:
       requests:
         cpu: "50m"
-        memory: "2096Mi"
+        memory: "128Mi"
       limits:
         memory: "2096Mi"
 cephBlockPools:
