@@ -24,31 +24,27 @@ cephClusterSpec:
   resources:
     api:
       requests:
-          cpu: "500m"
+          cpu: "50m"
           memory: "512Mi"
       limits:
-        cpu: "500m"
         memory: "512Mi"
     mgr:
       requests:
-          cpu: "500m"
+          cpu: "50m"
           memory: "512Mi"
       limits:
-        cpu: "500m"
         memory: "512Mi"
     mon:
       requests:
-          cpu: "500m"
+          cpu: "50m"
           memory: "512Mi"
       limits:
-        cpu: "500m"
         memory: "512Mi"
     osd:
       requests:
-        cpu: "500m"
+        cpu: "50m"
         memory: "2096Mi"
       limits:
-        cpu: "500m"
         memory: "2096Mi"
 cephBlockPools:
 - name: ceph-blockpool
