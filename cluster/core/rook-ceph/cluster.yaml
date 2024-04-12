@@ -9,7 +9,6 @@ ingress:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     host:
       name: ceph.i.ctr.farm
-      path: "/ceph-dashboard(/|$)(.*)"
     ingressClassName: ingress-internal
 cephClusterSpec:
   dataDirHostPath:  /var/lib/rook-internal
