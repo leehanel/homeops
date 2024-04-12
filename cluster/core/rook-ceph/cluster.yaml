@@ -52,6 +52,12 @@ cephClusterSpec:
         memory: "128Mi"
       limits:
         memory: "2096Mi"
+    logCollector:
+      requests:
+        cpu: "5m"
+        memory: "64Mi"
+      limits:
+        memory: "2096Mi"
 cephBlockPools:
 - name: ceph-blockpool
   spec:
