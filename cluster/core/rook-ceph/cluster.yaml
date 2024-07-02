@@ -64,7 +64,9 @@ cephBlockPools:
     failureDomain: host
     replicated:
       size: 3
-    deviceClass: ssd
+    hybridStorage:
+      primaryDeviceClass: nvme
+      secondaryDeviceClass: ssd
   storageClass:
     enabled: true
     name: ceph-blockpool
