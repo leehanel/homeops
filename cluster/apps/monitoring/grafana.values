@@ -7,6 +7,7 @@ ingress:
   tls:
     - hosts:
       - grafana.i.ctr.farm
+envFromSecret: grafana-secrets
 persistence:
   enabled: true
   storageClassName: ceph-blockpool

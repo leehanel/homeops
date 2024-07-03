@@ -1,6 +1,7 @@
 ---
 namespace: monitoring
 resources:
+- grafana-secretes.yaml
 - proxmox-secrets.yaml
 helmCharts:
 - name: kube-prometheus-stack
