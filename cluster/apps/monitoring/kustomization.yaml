@@ -10,7 +10,7 @@ helmCharts:
   valuesFile: prom.values
 - name: grafana
   repo: https://grafana.github.io/helm-charts
-  version: 6.56.1
+  version: 8.3.1
   releaseName: grafana
   valuesFile: grafana.values
 - name: prometheus-blackbox-exporter
