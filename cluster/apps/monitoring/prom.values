@@ -95,9 +95,6 @@ prometheus:
         static_configs:
           - targets:
             - pve01.i.ctr.farm
-            - pve02.i.ctr.farm
-            - pve03.i.ctr.farm
-            - pve04.i.ctr.farm
         metrics_path: /pve
         params:
           module: [default]
