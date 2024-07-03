@@ -5,6 +5,7 @@ controller:
   type: statefulset
 env:
   PVE_USER: monitoring@pve
+  PVE_VERIFY_SSL: false
   PVE_TOKEN_NAME: "monitoring"
   PVE_TOKEN_VALUE:
     valueFrom:
