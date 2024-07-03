@@ -4,9 +4,9 @@ replicas: 1
 controller:
   type: statefulset
 env:
-  PVE_USER: monitoring@pve
+  PVE_TOKEN_NAME: monitoring@pve!monitoring
   PVE_VERIFY_SSL: false
-  PVE_PASSWORD:
+  PVE_TOKEN_VALUE:
     valueFrom:
       secretKeyRef:
         name: pve-secrets
