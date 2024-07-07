@@ -1,16 +1,18 @@
 ---
 namespace: kube-system
+resources:
+- https://github.com/kubernetes-sigs/node-feature-discovery/deployment/overlays/default?ref=v0.16.1
 helmCharts:
 #- name: kube-monkey
   #version: 1.5.2
   #repo: https://asobti.github.io/kube-monkey/charts/repo
   #valuesFile: kubemonkey.values
   #namespace: kube-system
-- name: node-feature-discovery
-  version:  0.16.1
-  repo: https://kubernetes-sigs.github.io/node-feature-discovery/charts
-  namespace: kube-system
-  valuesFile: nfd.values
+#- name: node-feature-discovery
+  #version:  0.16.1
+  #repo: https://kubernetes-sigs.github.io/node-feature-discovery/charts
+  #namespace: kube-system
+  #valuesFile: nfd.values
 - name: app-template
   repo: https://bjw-s.github.io/helm-charts/
   namespace: kube-system
