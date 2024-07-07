@@ -43,12 +43,3 @@ persistence:
     hostPathType: Directory
     hostPath: /var/lib/kubelet/device-plugins
 
-affinity:
-  nodeAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: feature.node.kubernetes.io/custom-intel-gpu
-              operator: In
-              values:
-                - "true"
