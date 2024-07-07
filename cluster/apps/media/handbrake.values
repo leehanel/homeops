@@ -1,0 +1,71 @@
+
+image:
+  repository: jlesage/handbrake
+  tag: nightly-20240706120338-01b8fbe52d
+imagePullSecrets:
+  - name: docker-registry
+env:
+  JELLYFIN_PublishedServerUrl: &host jellyfin.i.ctr.farm
+  TZ: "UTC"
+  AUTOMATED_CONVERSION_OUTPUT_DIR: /output
+  AUTOMATED_CONVERSION_PRESET: General/HQ 1080p30 Surround
+dnsConfig:
+  options:
+  - name: ndots
+    value: "2"
+#ingress:
+  #main:
+    #enabled: true
+    #ingressClassName: "ingress-internal"
+    #hosts:
+      #- host: *host
+        #paths:
+          #- path: /
+            #pathType: Prefix
+    #tls:
+      #- hosts:
+          #- *host
+persistence:
+  config:
+    enabled: true
+    existingClaim: handbrake
+  transcode:
+    enabled: true
+    type: emptyDir
+  named:
+    enabled: true
+    type: custom
+    volumeSpec:
+      nfs:
+        server: "192.168.254.111"
+        path: /Tank/lhanel/jellyfin/converted
+    mountPath: /output
+  named:
+    enabled: true
+    type: custom
+    volumeSpec:
+      nfs:
+        server: "192.168.254.111"
+        path: /Tank/lhanel/jellyfin/named
+    mountPath: /watch
+resources:
+  requests:
+    memory: 3Gi
+    cpu.intel.com/i915: 1
+  limits:
+    memory: 4Gi
+    cpu.intel.com/i915: 1
+service:
+  main:
+    ports:
+      http:
+        port: 8096
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: feature.node.kubernetes.io/custom-intel-gpu
+          operator: In
+          values:
+          - "true"
