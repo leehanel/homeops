@@ -38,7 +38,7 @@ persistence:
     volumeSpec:
       nfs:
         server: "192.168.254.111"
-        path: /Tank/lhanel/jellyfin/converted
+        path: /Tank/lhanel/converted
     mountPath: /output
   named:
     enabled: true
@@ -46,7 +46,7 @@ persistence:
     volumeSpec:
       nfs:
         server: "192.168.254.111"
-        path: /Tank/lhanel/jellyfin/named
+        path: /Tank/lhanel/named
     mountPath: /watch
 resources:
   requests:
