@@ -5,7 +5,7 @@ image:
 imagePullSecrets:
   - name: docker-registry
 env:
-  JELLYFIN_PublishedServerUrl: &host jellyfin.i.ctr.farm
+  Url: &host handbrake.i.ctr.farm
   TZ: "UTC"
   AUTOMATED_CONVERSION_OUTPUT_DIR: /output
   AUTOMATED_CONVERSION_PRESET: General/HQ 1080p30 Surround
@@ -13,18 +13,18 @@ dnsConfig:
   options:
   - name: ndots
     value: "2"
-#ingress:
-  #main:
-    #enabled: true
-    #ingressClassName: "ingress-internal"
-    #hosts:
-      #- host: *host
-        #paths:
-          #- path: /
-            #pathType: Prefix
-    #tls:
-      #- hosts:
-          #- *host
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "ingress-internal"
+    hosts:
+      - host: *host
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - *host
 persistence:
   config:
     enabled: true
@@ -59,13 +59,4 @@ service:
   main:
     ports:
       http:
-        port: 8096
-#affinity:
-  #nodeAffinity:
-    #requiredDuringSchedulingIgnoredDuringExecution:
-      #nodeSelectorTerms:
-      #- matchExpressions:
-        #- key: feature.node.kubernetes.io/custom-intel-gpu
-          ##operator: In
-          #values:
-          #- "true"
+        port: 5800
