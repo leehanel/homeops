@@ -17,12 +17,12 @@ helmCharts:
   version: 1.2.1
   releaseName: intel-gpu-plugin
   valuesFile: intel-gpu-plugin.values
-- name: volsync
-  repo: https://backube.github.io/helm-charts/
-  version: 0.5.0
-  namespace: volsync-system
-- name: snapshot-controller
-  repo: https://piraeus.io/helm-charts/
-  version: 1.7.2
-  namespace: kube-system
-  valuesFile: snapshot-controller.yaml
+#- name: volsync
+  #repo: https://backube.github.io/helm-charts/
+  #version: 0.5.0
+  #namespace: volsync-system
+#- name: snapshot-controller
+  #repo: https://piraeus.io/helm-charts/
+  #version: 1.7.2
+  #namespace: kube-system
+  #valuesFile: snapshot-controller.yaml
