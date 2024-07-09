@@ -32,7 +32,7 @@ persistence:
   transcode:
     enabled: true
     type: emptyDir
-  named:
+  output:
     enabled: true
     type: custom
     volumeSpec:
@@ -40,7 +40,7 @@ persistence:
         server: "192.168.254.111"
         path: /Tank/lhanel/converted
     mountPath: /output
-  named:
+  watch:
     enabled: true
     type: custom
     volumeSpec:
