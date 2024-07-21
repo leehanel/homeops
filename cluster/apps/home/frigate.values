@@ -4,7 +4,7 @@ controller:
   type: statefulset
 image:
   repository: ghcr.io/blakeblackshear/frigate
-  tag: 0.12.1
+  tag: 0.13.2
 ingress:
   main:
     enabled: true
