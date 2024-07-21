@@ -43,11 +43,11 @@ startup:
 securityContext:
   privileged: true
 coral:
-  enabled: true
+  enabled: flase
   hostPath: /dev/apex_0
 timezone: "America/Chicago"
-nodeSelector:
-  feature.node.kubernetes.io/custom-coral-tpu: "true"
+#nodeSelector:
+  #feature.node.kubernetes.io/custom-coral-tpu: "true"
 persistence:
   config-file:
     enabled: true
@@ -100,14 +100,17 @@ configMaps:
         database:
           path: /data/frigate.db
         detectors:
-          coral_pci:
-            type: edgetpu
-            device: pci
+          cpu1:
+            type: cpu
+            num_threads: 3
+          #coral_pci:
+            #type: edgetpu
+            #device: pci
         cameras:
           new:
             ffmpeg:
               inputs:
-                - path: rtsp://test:test1test@192.168.255.169/live
+                - path: rtsp://test:test1test@192.168.255.249/live
                   roles:
                     - detect
                     - rtmp
