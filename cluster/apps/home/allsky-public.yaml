@@ -29,7 +29,7 @@ metadata:
 spec:
   ingressClassName: ingress-internal
   rules:
-  - host: allsky.ctr.farm
+  - host: allsky.i.ctr.farm
     http:
       paths:
       - backend:
