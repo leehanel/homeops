@@ -2,8 +2,9 @@
 namespace: media
 resources:
 - handbrake-pvc.yaml
-- jellyfin-pvc.yaml
 - external-secret.yaml
+- jellyfin-pvc.yaml
+- wallabag-pvc.yaml
 helmCharts:
 - name: app-template
   version: 1.5.1
@@ -25,3 +26,10 @@ helmCharts:
   namespace: media
   releaseName: handbrake
   valuesFile: handbrake.values
+- name: app-template
+  version: 1.5.1
+  repo: https://bjw-s.github.io/helm-charts/
+  namespace: media
+  releaseName: wallabag
+  valuesFile: wallabag.values
+  

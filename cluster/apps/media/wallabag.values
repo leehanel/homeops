@@ -1,0 +1,37 @@
+---
+controller:
+  annotations:
+    reloader.stakater.com/auto: "true"
+  main:
+    replicas: 2
+image:
+  repository: quay.io/invidious/invidious
+  tag: latest
+env: 
+  DATABASE_URL:
+    valueFrom:
+      secretKeyRef:
+        name: wallabag
+        key: postgres
+service:
+  main:
+    ports:
+      http:
+        port: 3000
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "ingress-internal"
+    annotations:
+    hosts:
+      - host: &host rl.i.ctr.farm
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - *host
+persistence:
+  data:
+    enabled: true
+    existingClaim: wallabag-data
