@@ -5,14 +5,30 @@ controller:
   main:
     replicas: 2
 image:
-  repository: quay.io/invidious/invidious
-  tag: latest
+  repository: ghcr.io/wallabag/docker
+  tag: 2.6.9
 env: 
-  DATABASE_URL:
+  SYMFONY__ENV__DATABASE_PASSWORD:
     valueFrom:
       secretKeyRef:
         name: wallabag
-        key: postgres
+        key: POSTGRES_PASSWORD
+  SYMFONY__ENV__DATABASE_USER:
+    valueFrom:
+      secretKeyRef:
+        name: wallabag
+        key: POSTGRES_USER
+  SYMFONY__ENV__DATABASE_DRIVER: pdo_pgsql
+  SYMFONY__ENV__DATABASE_HOST:
+    valueFrom:
+      secretKeyRef:
+        name: wallabag
+        key: server
+  SYMFONY__ENV__DATABASE_NAME:
+    valueFrom:
+      secretKeyRef:
+        name: wallabag
+        key: database
 service:
   main:
     ports:
