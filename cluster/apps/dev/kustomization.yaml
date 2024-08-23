@@ -1,0 +1,14 @@
+---
+namespace: dev
+helmCharts:
+- name: docker-registry
+  repo: https://helm.twun.io
+  namespace: dev
+  version: 2.2.2
+  releaseName: registry
+  valuesFile: registry.values
+- name: arc
+  namespace: dev
+  repo: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
+  version: 0.9.3
+  valuesFile: arc.values
