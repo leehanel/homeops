@@ -1,0 +1,19 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: sleep
+  namespace: dev
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: ubuntu
+        name: sleep
+        args: ['sleep', '120']
+        resources: {}
+      restartPolicy: Never
+status: {}
