@@ -2,7 +2,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  creationTimestamp: null
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
   name: sleep
   namespace: dev
 spec:
