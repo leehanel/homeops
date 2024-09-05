@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/leehanel/homeops.git'
-    path: cluster/apps/dev/app1
+    path: cluster/apps/app/app1
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
