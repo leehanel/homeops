@@ -3,22 +3,18 @@ kind: Deployment
 metadata:
   name: app1
   namespace: dev
-  labels:
-    app: app1
 spec:
   selector:
     matchLabels:
-      app: app1
-  replicas: 2
-  containers:
-      - name: hello-world
-        image: helloworld
+      app: helloworld
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: helloworld
+        image: helloworld:latest
         ports:
         - containerPort: 80
-        resources:
-          limits:
-            memory: 256Mi
-            cpu: "250m"
-          requests:
-            memory: 128Mi
-            cpu: "80m"
