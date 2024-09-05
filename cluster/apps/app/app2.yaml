@@ -5,13 +5,13 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  name: app1
+  name: app2
   namespace: dev
 spec:
   project: default
   source:
     repoURL: 'https://github.com/leehanel/homeops.git'
-    path: cluster/apps/app/app1
+    path: cluster/apps/app/app2
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
