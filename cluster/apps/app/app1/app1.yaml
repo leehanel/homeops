@@ -10,3 +10,15 @@ spec:
     matchLabels:
       app: app1
   replicas: 2
+  containers:
+      - name: hello-world
+        image: helloworld
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: "250m"
+          requests:
+            memory: 128Mi
+            cpu: "80m"
