@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: wordpress:latest
+        image: wordpress:php8.1
         ports:
         - containerPort: 8080
