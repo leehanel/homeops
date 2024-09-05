@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: helloworld:latest
+        image: wordpress:latest
         ports:
         - containerPort: 80
