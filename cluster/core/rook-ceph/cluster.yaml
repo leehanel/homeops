@@ -85,4 +85,4 @@ cephBlockPoolsVolumeSnapshotClass:
   name: csi-ceph-blockpool
   isDefault: false
   deletionPolicy: Delete
-      csi.storage.k8s.io/fstype: ext4
+  csi.storage.k8s.io/fstype: ext4
