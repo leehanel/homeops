@@ -11,6 +11,7 @@ resources:
 - monitoring.yaml
 - networking.yaml
 - nginx.yaml
+- rook-ceph.yaml
 - security.yaml
 - volsync-system.yaml
 - web.yaml
