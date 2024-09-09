@@ -1,7 +1,7 @@
 ---
 #namespace: rook-ceph
 resources:
-- namespace.yaml
+#- namespace.yaml
 helmCharts:
 #- name: rook-ceph
 #  releaseName:  rook-ceph
