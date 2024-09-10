@@ -1,5 +1,5 @@
 ---
 resources:
-  - app0.yaml
-  - app1.yaml
-  - app2.yaml
+  - app0/job.yaml
+  - app1/app1.yaml
+  - app2/app1.yaml
