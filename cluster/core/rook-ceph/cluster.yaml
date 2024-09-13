@@ -11,7 +11,7 @@ ingress:
       name: ceph.i.ctr.farm
     ingressClassName: ingress-internal
 cephClusterSpec:
-  #dataDirHostPath:  /var/lib/rook
+  dataDirHostPath:  /var/lib/rook-internal
   crashCollector:
     disable: true
   dashboard:
