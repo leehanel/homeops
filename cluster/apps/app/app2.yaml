@@ -5,7 +5,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  name: app2
+  name: app-o-app2
   namespace: argocd
 spec:
   project: default
