@@ -9,14 +9,30 @@ spec:
   selector:
     matchLabels:
       app: helloworld
+      instance: app1
   replicas: 2 # tells deployment to run 1 pods matching the template
   template: # create pods using pod definition in this template
     metadata:
       labels:
         app: helloworld
+        instance: app1
     spec:
       containers:
       - name: helloworld
         image: wordpress:php8.1
         ports:
         - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 3
