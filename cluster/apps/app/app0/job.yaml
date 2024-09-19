@@ -4,8 +4,8 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-    #argocd.argoproj.io/hook: PostSync
-    #argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
   name: sleep
   namespace: dev
 spec:
@@ -16,5 +16,5 @@ spec:
       containers:
       - image: ubuntu
         name: sleep
-        command: ["sleep", "20"]
+        command: ["sleep", "30"]
       restartPolicy: Never
