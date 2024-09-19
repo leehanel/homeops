@@ -16,6 +16,6 @@ spec:
       containers:
       - image: ubuntu
         name: sleep
-        command: ["sleep", "30"]
+        command: ["sleep", "20"]
       restartPolicy: Never
 status: {}
