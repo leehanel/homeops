@@ -1,4 +1,4 @@
 ---
 resources:
-  #- job.yaml
-  - app0.yaml
+  - job.yaml
+  #- app0.yaml
