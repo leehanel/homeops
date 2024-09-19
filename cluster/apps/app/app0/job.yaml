@@ -4,8 +4,7 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-  name: sleep
+  name: sleep-0
   namespace: dev
 spec:
   template:
