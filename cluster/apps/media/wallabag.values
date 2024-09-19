@@ -19,6 +19,7 @@ env:
         name: wallabag
         key: POSTGRES_USER
   SYMFONY__ENV__DATABASE_DRIVER: pdo_pgsql
+  SYMFONY__ENV__DATABASE_PORT: 5432
   SYMFONY__ENV__DATABASE_HOST:
     valueFrom:
       secretKeyRef:
