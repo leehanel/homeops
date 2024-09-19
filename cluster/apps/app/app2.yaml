@@ -4,7 +4,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "3"
   name: app-o-app2
   namespace: argocd
 spec:
@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: 'https://github.com/leehanel/homeops.git'
     path: cluster/apps/app/app2
-    targetRevision: v1.0.3
+    targetRevision: v1.0.4
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
