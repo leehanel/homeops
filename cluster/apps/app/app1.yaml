@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: 'https://github.com/leehanel/homeops.git'
     path: cluster/apps/app/app1
-    targetRevision: v1.0.13
+    targetRevision: v1.0.14
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd

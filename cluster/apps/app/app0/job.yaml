@@ -4,7 +4,7 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  name: sleep-0
+  name: sleep-1
   namespace: dev
 spec:
   template:
