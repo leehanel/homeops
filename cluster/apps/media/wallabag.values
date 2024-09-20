@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/wallabag/docker
   tag: 2.6.9
 env: 
-  SYMFONY__ENV__DOMAIN_NAME: "http://SYMFONY__ENV__DOMAIN_NAME"
+  SYMFONY__ENV__DOMAIN_NAME: "https://rl.i.ctr.farm"
   SYMFONY__ENV__DATABASE_PASSWORD:
     valueFrom:
       secretKeyRef:
