@@ -1,0 +1,66 @@
+controllers:
+  linkwarden:
+    annotations:
+      reloader.stakater.com/auto: "true"
+    initContainers:
+      init-db:
+        image:
+          repository: ghcr.io/onedr0p/postgres-init
+          tag: 16.3@sha256:8ba3204f6b293dd168766009aae2ce4fa986a29b931c2d30ac1b30238ac750b8
+          pullPolicy: IfNotPresent
+        envFrom: &envFrom
+          - secretRef:
+              name: linkwarden-secret
+    containers:
+      app:
+        image:
+          repository: ghcr.io/linkwarden/linkwarden
+          tag: v2.7.1
+        env:
+          #NEXT_PUBLIC_DISABLE_REGISTRATION: "true"
+          NEXT_PUBLIC_CREDENTIALS_ENABLED: "true"
+          DISABLE_NEW_SSO_USERS: "false"
+          STORAGE_FOLDER: "config" # Will always end up as /data/STOREAGE_FOLDER so eg /data/config
+          HOME: /data/config
+        envFrom: *envFrom
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities: { drop: ["ALL"] }
+        resources:
+          requests:
+            cpu: 10m
+            memory: 1.5Gi
+          limits:
+            memory: 5Gi
+service:
+  app:
+    controller: linkwarden
+    ports:
+      http:
+        port: 3000
+ingress:
+  app:
+    enabled: true
+    className: external
+    annotations:
+      external-dns.alpha.kubernetes.io/target: external.rodent.cc
+    hosts:
+      - host: "{{ .Release.Name }}.i.ctr.farm"
+        paths:
+          - path: /
+            service:
+              identifier: app
+              port: http
+persistence:
+  config:
+    enabled: true
+    existingClaim: config-linkwarden
+    globalMounts:
+      - path: /data/config
+  next-cache:
+    enabled: true
+    type: emptyDir
+    globalMounts:
+      - path: /data/.next/cache
+  tmp:
+    type: emptyDir

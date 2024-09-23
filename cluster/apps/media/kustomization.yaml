@@ -4,7 +4,7 @@ resources:
 - handbrake-pvc.yaml
 - external-secret.yaml
 - jellyfin-pvc.yaml
-- wallabag-pvc.yaml
+- linkwarden-pvc.yaml
 helmCharts:
 - name: app-template
   version: 1.5.1
@@ -26,10 +26,11 @@ helmCharts:
   namespace: media
   releaseName: handbrake
   valuesFile: handbrake.values
+
 - name: app-template
-  version: 1.5.1
+  version: 3.4.0
   repo: https://bjw-s.github.io/helm-charts/
   namespace: media
-  releaseName: wallabag
-  valuesFile: wallabag.values
+  releaseName: linkwarden
+  valuesFile: linkwarden.values
   
