@@ -1,0 +1,25 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name:  linkwarden
+  namespace: media
+spec:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: onepassword-connect
+  target:
+    name: linkwarden-secret
+    creationPolicy: Owner
+    template:
+      engineVersion: v2
+      data:
+        DATABASE_URL: "{{ .db_url }}"
+        NEXTAUTH_SECRET: "{{ .nextauth }}"
+        INIT_POSTGRES_HOST: "{{ .INIT_POSTGRES_HOST }}"
+        INIT_POSTGRES_USER: "{{ .INIT_POSTGRES_USER }}"
+        INIT_POSTGRES_PASS: "{{ .INIT_POSTGRES_PASS }}"
+        INIT_POSTGRES_DBNAME: "{{ .INIT_POSTGRES_DBNAME }}"
+  dataFrom:
+    - extract:
+        key: linkwarden

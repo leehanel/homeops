@@ -1,8 +1,9 @@
 ---
 namespace: media
 resources:
-- handbrake-pvc.yaml
+- es-linkwarden.yaml
 - external-secret.yaml
+- handbrake-pvc.yaml
 - jellyfin-pvc.yaml
 - linkwarden-pvc.yaml
 helmCharts:
