@@ -13,5 +13,10 @@ helmCharts:
   namespace: security
   version: 0.7.0
   valuesFile: external-secrets.values
+- repo: https://charts.goauthentik.io
+  name: authentik
+  namespace: security
+  valuesFile: authentik.values
 resources:
 - clustersecretstore.yaml
+- es-authentik.yaml
