@@ -152,7 +152,7 @@ configMaps:
             record:
               enabled: True
               retain_days: 30
-          new:
+          bullet:
             ffmpeg:
               inputs:
                 - path: rtsp://test:test1test@192.168.255.249/live
