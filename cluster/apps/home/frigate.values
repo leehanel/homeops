@@ -155,7 +155,7 @@ configMaps:
           bullet:
             ffmpeg:
               inputs:
-                - path: rtsp://test:test1test@192.168.255.249/live
+                - path: rtsp://test:test1test@192.168.255.110/live
                   roles:
                     - detect
                     - rtmp
