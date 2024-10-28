@@ -1,0 +1,8 @@
+ingress:
+  hosts: [{"host":"ll.i.ctr.farm","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}]
+persistence:
+  enabled: true
+  images:
+    enabled: true
+postgres:
+  create: true
