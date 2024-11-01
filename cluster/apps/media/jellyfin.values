@@ -1,7 +1,7 @@
 
 image:
   repository: linuxserver/jellyfin
-  tag: 10.8.9
+  tag: 10.10.0
 imagePullSecrets:
   - name: docker-registry
 env:
