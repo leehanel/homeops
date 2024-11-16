@@ -13,14 +13,14 @@ spec:
         - path: cluster/t/core/*
   template:
     metadata:
-      name: 'core-{{path[3]}}'
+      name: 'core-{{path.path}}'
       namespace: argocd
     spec:
       project: default
       source:
         repoURL: ssh://git@github.com/leehanel/homeops.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: '{{path.path}}'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: argocd
