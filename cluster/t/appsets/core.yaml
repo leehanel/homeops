@@ -16,6 +16,7 @@ spec:
       name: 'core-{{path.path}}'
       namespace: argocd
     spec:
+      project: default
       source:
         repoURL: ssh://git@github.com/leehanel/homeops.git
         targetRevision: HEAD
