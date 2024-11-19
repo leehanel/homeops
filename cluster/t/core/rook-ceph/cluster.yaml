@@ -1,0 +1,90 @@
+---
+toolbox:
+  enabled: true
+monitoring:
+  enabled: false
+ingress:
+  dashboard:
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    host:
+      name: ceph.i.ctr.farm
+    ingressClassName: ingress-internal
+cephClusterSpec:
+  dataDirHostPath:  /var/lib/rook-internal
+  crashCollector:
+    disable: true
+  dashboard:
+    enabled: true
+    urlPrefix: /
+    ssl: false
+  storage:
+    useAllNodes: true
+    useAllDevices: true
+  resources:
+    api:
+      requests:
+          cpu: "50m"
+          memory: "512Mi"
+      limits:
+        memory: "512Mi"
+    mds:
+      requests:
+          cpu: "50m"
+          memory: "50Mi"
+      limits:
+          memory: "512Mi"
+    mgr:
+      requests:
+          cpu: "50m"
+          memory: "512Mi"
+      limits:
+        memory: "512Mi"
+    mon:
+      requests:
+          cpu: "50m"
+          memory: "64Mi"
+      limits:
+        memory: "512Mi"
+    osd:
+      requests:
+        cpu: "50m"
+        memory: "128Mi"
+      limits:
+        memory: "2096Mi"
+    logCollector:
+      requests:
+        cpu: "5m"
+        memory: "64Mi"
+      limits:
+        memory: "2096Mi"
+cephBlockPools:
+- name: ceph-blockpool
+  spec:
+    failureDomain: host
+    replicated:
+      size: 3
+    deviceClass: ssd
+  storageClass:
+    enabled: true
+    name: ceph-blockpool
+    isDefault: true
+    reclaimPolicy: Delete
+    allowVolumeExpansion: true
+    parameters:
+      imageFormat: "2"
+      imageFeatures: layering
+      csi.storage.k8s.io/provisioner-secret-name: rook-csi-rbd-provisioner
+      csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
+      csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
+      csi.storage.k8s.io/controller-expand-secret-namespace: rook-ceph
+      csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
+      csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
+cephObjectStores: []
+cephFileSystems: []
+cephBlockPoolsVolumeSnapshotClass:
+  enabled: false
+  #name: csi-ceph-blockpool
+  #isDefault: false
+  #deletionPolicy: Delete
+  #csi.storage.k8s.io/fstype: ext4

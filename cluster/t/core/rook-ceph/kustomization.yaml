@@ -1,0 +1,17 @@
+---
+#namespace: rook-ceph
+resources:
+#- namespace.yaml
+helmCharts:
+- name: rook-ceph
+  releaseName:  rook-ceph
+  repo: https://charts.rook.io/release
+  namespace: rook-ceph
+  version:  v1.15.4
+  valuesFile: operator.yaml
+- name: rook-ceph-cluster
+  releaseName:  rook-ceph
+  repo: https://charts.rook.io/release
+  namespace: rook-ceph
+  version:  v1.15.4
+  valuesFile: cluster.yaml
