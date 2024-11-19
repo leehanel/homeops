@@ -20,7 +20,7 @@ spec:
       source:
         repoURL: https://github.com/leehanel/homeops.git
         targetRevision: HEAD
-        path: '{path}}'
+        path: '{{path}}'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: argocd
