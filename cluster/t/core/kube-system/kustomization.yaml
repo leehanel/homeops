@@ -1,0 +1,18 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kube-system
+helmCharts:
+  - name: cilium
+    releaseName: cilium
+    repo: https://helm.cilium.io/
+    version: v1.16.3
+    includeCRDs: true
+    valuesFile: cilium.yaml
+  - name: coredns
+    repo: https://coredns.github.io/helm
+    releaseName: coredns
+    version: 1.36.1
+    valuesFile: coredns.yaml
+resources:
+  - bgp.yaml
