@@ -3,14 +3,15 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 resources:
-- dev.yaml
-- gaming.yaml
-- home.yaml
-- media.yaml
-- monitoring.yaml
-- networking.yaml
-- nginx.yaml
-- rook-ceph.yaml
-- security.yaml
-- volsync-system.yaml
-- web.yaml
+  - argocd.yaml
+  - dev.yaml
+  - gaming.yaml
+  - home.yaml
+  - media.yaml
+  - monitoring.yaml
+  - networking.yaml
+  - nginx.yaml
+  - rook-ceph.yaml
+  - security.yaml
+  - volsync-system.yaml
+  - web.yaml
