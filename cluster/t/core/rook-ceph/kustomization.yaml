@@ -4,13 +4,13 @@ kind: Kustomization
 namespace: rook-ceph
 helmCharts:
 - name: rook-ceph
-  releaseName:  rook-ceph
+  releaseName:  rook-ceph-operator
   repo: https://charts.rook.io/release
   namespace: rook-ceph
   version:  v1.15.4
   valuesFile: operator.yaml
 - name: rook-ceph-cluster
-  releaseName:  rook-ceph
+  releaseName:  rook-ceph-cluster
   repo: https://charts.rook.io/release
   namespace: rook-ceph
   version:  v1.15.4
