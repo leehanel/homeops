@@ -1,4 +1,5 @@
 ---
+namespace: rook-ceph
 helmCharts:
 - name: rook-ceph
   releaseName:  rook-ceph
