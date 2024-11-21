@@ -1,4 +1,6 @@
 ---
+kustomize:
+  buildOptions: "--enable-helm"
 server:
   service:
     type: LoadBalancer
