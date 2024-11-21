@@ -5,20 +5,18 @@ namespace: security
 helmCharts:
 - name: app-template
   repo: https://bjw-s.github.io/helm-charts/
-  namespace: security
   version: 3.5.1
   releaseName: onepassword-connect
   valuesFile: onepassword-connect.values
 - repo: https://charts.external-secrets.io
   name: external-secrets
   releaseName: external-secrets
-  namespace: security
   version: 0.10.6
   valuesFile: external-secrets.values
     #- repo: https://charts.goauthentik.io
     #name: authentik
     #namespace: security
     #valuesFile: authentik.values
-    #resources:
-    #- clustersecretstore.yaml
+resources:
+  - clustersecretstore.yaml
   #- es-authentik.yaml
