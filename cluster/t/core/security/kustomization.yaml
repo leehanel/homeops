@@ -7,7 +7,7 @@ helmCharts:
   repo: https://bjw-s.github.io/helm-charts/
   version: 3.5.1
   releaseName: onepassword-connect
-  valuesFile: onepassword-connect.values
+  valuesFile: onepassword-connect.yaml
   #- repo: https://charts.external-secrets.io
   #name: external-secrets
   #releaseName: external-secrets
