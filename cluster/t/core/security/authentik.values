@@ -1,0 +1,12 @@
+server:
+  ingress:
+    # Specify kubernetes ingress controller class name
+    enabled: true
+    hosts:
+      - authentik.i.ctr.farm
+redis:
+  enabled: true
+global:
+  envFrom:
+    - secretRef:
+        name: authentik

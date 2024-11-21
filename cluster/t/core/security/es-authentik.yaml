@@ -1,0 +1,25 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: authentik
+  namespace: media
+spec:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: onepassword-connect
+  target:
+    name: authentik
+    creationPolicy: Owner
+    template:
+      engineVersion: v2
+      data:
+        AUTHENTIK_POSTGRESQL__USER: "{{ .username }}"
+        AUTHENTIK_POSTGRESQL__HOST: "{{ .server }}"
+        AUTHENTIK_POSTGRESQL__NAME: "{{ .database }}"
+        AUTHENTIK_POSTGRESQL__PASSWORD: "{{ .password }}"
+        AUTHENTIK_SECRET_KEY: "{{ .secretkey }}"
+  dataFrom:
+    - extract:
+        key: authentik
+
