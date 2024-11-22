@@ -10,7 +10,6 @@ helmCharts:
   releaseName: prom
   namespace: monitoring
   repo: https://prometheus-community.github.io/helm-charts
-  includeCRDs: true
   version: "66.2.1"
   valuesFile: prom.values
 - name: grafana
