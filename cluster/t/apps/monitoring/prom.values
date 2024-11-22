@@ -1,5 +1,6 @@
 ---
-fullnameOverride: prometheus
+fullnameOverride: prom
+namespaceOverride: monitoring
 alertmanager:
   enabled: true
   ingress:
