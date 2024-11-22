@@ -1,0 +1,40 @@
+global:
+  fullnameOverride: pve-exporter
+replicas: 1
+controller:
+  type: statefulset
+env:
+  PVE_USER: monitoring@pve
+  PVE_VERIFY_SSL: false
+  PVE_PASSWORD:
+    valueFrom:
+      secretKeyRef:
+        name: pve-secrets
+        key: pve
+image:
+  repository: prompve/prometheus-pve-exporter
+  tag: 3.4.2
+service:
+  main:
+    ports:
+      http:
+        port: &port 9221
+livenessProbe:
+  enabled: true
+  path: /
+  port: *port
+  initialDelaySeconds: 180
+  periodSeconds: 20
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1
+
+readinessProbe:
+  enabled: true
+  path: /
+  port: *port
+  initialDelaySeconds: 180
+  periodSeconds: 20
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1
