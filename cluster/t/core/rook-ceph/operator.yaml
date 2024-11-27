@@ -1,5 +1,7 @@
 crds:
   enabled: true
+monitoring:
+  enabled: true
 pspEnable: false
 csi:
   csiRBDPluginResource: |
