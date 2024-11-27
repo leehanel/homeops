@@ -2,6 +2,7 @@
 toolbox:
   enabled: true
 monitoring:
+  createPrometheusRules: true
   enabled: true
 ingress:
   dashboard:
