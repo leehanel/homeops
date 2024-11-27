@@ -12,11 +12,11 @@ helmCharts:
   repo: https://prometheus-community.github.io/helm-charts
   version: "66.2.1"
   valuesFile: prom.values
-- name: grafana
-  repo: https://grafana.github.io/helm-charts
-  version: 8.3.1
-  releaseName: grafana
-  valuesFile: grafana.values
+    #- name: grafana
+    #repo: https://grafana.github.io/helm-charts
+    #version: 8.3.1
+    #releaseName: grafana
+    #valuesFile: grafana.values
 - name: prometheus-blackbox-exporter
   releaseName: blackbox-exporter
   repo: https://prometheus-community.github.io/helm-charts
