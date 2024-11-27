@@ -11,7 +11,7 @@ helmCharts:
 - repo: https://charts.external-secrets.io
   name: external-secrets
   releaseName: external-secrets
-  version: 0.10.6
+  version: 0.10.7
   valuesFile: external-secrets.values
     #- repo: https://charts.goauthentik.io
     #name: authentik
