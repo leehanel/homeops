@@ -20,5 +20,4 @@ spec:
           dnsNames:
           - i.ctr.farm
           - '*.i.ctr.farm'
-          - internal.ctr.farm
-          - '*.internal.ctr.farm'
+          - '*.t.ctr.farm'
