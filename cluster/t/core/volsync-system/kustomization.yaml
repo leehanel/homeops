@@ -5,6 +5,7 @@ namespace: volsync-system
 helmCharts:
   - name: snapshot-controller
     includeCRDs: true
+    namespace: volsync-system
     repo: https://piraeus.io/helm-charts/
     releaseName: snapshot-controller
     version: 3.0.6
