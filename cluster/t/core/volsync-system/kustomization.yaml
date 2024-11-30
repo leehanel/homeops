@@ -10,3 +10,8 @@ helmCharts:
     releaseName: snapshot-controller
     version: 3.0.6
     valuesFile: snapshot-controller.yaml
+  - name: volsync
+    includeCRDs: true
+    repo: https://backube.github.io/helm-charts/
+    version: v0.11.0
+    valuesFile: volsync.yaml
