@@ -6,6 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
 resources:
   - argocd.yaml
+  - db.yaml
   - dev.yaml
   - external-dns.yaml
   - gaming.yaml
