@@ -6,3 +6,8 @@ persistence:
     enabled: true
 postgres:
   create: true
+secret:
+  emailServer: 192.168.254.2
+  emailFrom: ll@ctr.farm
+  username: ""
+  password: ""
