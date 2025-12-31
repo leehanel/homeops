@@ -152,6 +152,24 @@ configMaps:
             record:
               enabled: True
               retain_days: 30
+          new:
+            ffmpeg:
+              inputs:
+                - path: rtsp://test:test1test@192.168.3.55/live
+                  roles:
+                    - detect
+                    - rtmp
+                    - clips
+                    - record
+            best_image_timeout: 60
+            detect:
+              width: 2592
+              height: 1944
+            mqtt:
+              enabled: false
+            record:
+              enabled: True
+              retain_days: 30
           bullet:
             ffmpeg:
               inputs:
